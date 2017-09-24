@@ -18,32 +18,51 @@
     "routing": {
         "index": "/index.html",
         "routes": {
-            "/": {
-                "match": "exact"
+            "^/newest/[^/]+$": {
+                "match": "regex"
             },
             "/newest": {
-                "match": "prefix"
+                "match": "exact"
+            },
+            "^/news/[^/]+$": {
+                "match": "regex"
             },
             "/news": {
-                "match": "prefix",
-                "onlyWithoutExtension": true
+                "match": "exact"
+            },
+            "^/show/[^/]+$": {
+                "match": "regex"
             },
             "/show": {
-                "match": "prefix"
+                "match": "exact"
+            },
+            "^/ask/[^/]+$": {
+                "match": "regex"
             },
             "/ask": {
-                "match": "prefix"
+                "match": "exact"
+            },
+            "^/jobs/[^/]+$": {
+                "match": "regex"
             },
             "/jobs": {
-                "match": "prefix"
+                "match": "exact"
             },
             "/user": {
                 "match": "exact"
             },
+            "^/item/[^/]+$": {
+                "match": "regex"
+            },
             "/item": {
                 "match": "exact"
+            },
+            "/": {
+                "match": "exact"
+            },
+            "^/.*$": {
+                "match": "regex"
             }
         }
     }
-
 }
