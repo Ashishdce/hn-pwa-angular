@@ -1,0 +1,27 @@
+<div class="col-xs-12">
+    <div class="page-number col-xs-12 clearfix">
+        <div class="span-wrapper clearfix">
+            <span class="previous disabled" [innerHTML]="currentPageNumber - 1 > 0? currentPageNumber - 1 : ''"></span>
+            <span class="current" [innerHTML]="currentPageNumber"></span>
+            <span class="next disabled" [innerHTML]="currentPageNumber + 1"></span>
+        </div>
+    </div>
+    <div class="items-wrapper clearfix">
+        <div class="item row clearfix" *ngFor="let item of pageData; let i = index">
+            <div class="title col-xs-12 col-md-8">
+                <a [href]="item.url" target="_blank" [innerHTML]="(i + count) + '.&nbsp;' + item.title"></a>
+            </div>
+            <div class="domain hidden-md-down col-md-4">
+                <p [innerHTML]="item.domain"></p>
+            </div>
+            <div class="description col-xs-12">
+                {{item.points}} &#9733; by
+                <span class="user-name" [innerHTML]="item.user"></span> |
+                <span class="time" [innerHTML]="item.time_ago"></span> |
+                <span class="comments" [innerHTML]="item.comments_count + ' comments'"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="left-button buttons" *ngIf="currentPageNumber - 1 > 0" (click)="navigate('left')"> &gt; </div>
+<div class="right-button buttons" *ngIf="pageData.length === 30" (click)="navigate('right')"> &gt;</div>

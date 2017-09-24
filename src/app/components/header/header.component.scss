@@ -1,0 +1,49 @@
+header {
+    height: 60px;
+    nav {
+        height: 100%;
+        position: relative;
+        padding-left: 60px;
+        .link {
+            float: left;
+            width: 55px;
+            height: 100%;
+            text-decoration: none;
+            font-size: 16px;
+            color: #673ab8;
+            padding-top: 16px;
+            text-align: center;
+            transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+            &:hover {
+                background: #673ab8;
+                color: #fff;
+            }
+        }
+        .image {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 15px;
+            left: 15px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.active {
+    background: #673ab8;
+    color: #fff !important;
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        nav {
+            .link {
+                width: 120px;
+                font-size: 18px;
+            }
+        }
+    }
+}
