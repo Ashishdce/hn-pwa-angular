@@ -1,0 +1,49 @@
+{
+    "dynamic": {
+        "group": [{
+            "name": "hnapi",
+            "urls": {
+                "https://node-hnapi.herokuapp.com": {
+                    "match": "prefix"
+                }
+            },
+            "cache": {
+                "optimizeFor": "performance",
+                "maxAgeMs": 3600000,
+                "maxEntries": 20,
+                "strategy": "lru"
+            }
+        }]
+    },
+    "routing": {
+        "index": "/index.html",
+        "routes": {
+            "/": {
+                "match": "exact"
+            },
+            "/newest": {
+                "match": "prefix"
+            },
+            "/news": {
+                "match": "prefix",
+                "onlyWithoutExtension": true
+            },
+            "/show": {
+                "match": "prefix"
+            },
+            "/ask": {
+                "match": "prefix"
+            },
+            "/jobs": {
+                "match": "prefix"
+            },
+            "/user": {
+                "match": "exact"
+            },
+            "/item": {
+                "match": "exact"
+            }
+        }
+    }
+
+}

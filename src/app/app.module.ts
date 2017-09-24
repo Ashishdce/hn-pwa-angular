@@ -12,6 +12,7 @@ import { UserModule } from './components/user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ContentResolver } from './services/content.resolver.service';
+import { ItemResolver } from './services/item.resolver.service';
 import { CommonService } from './services/common.service';
 
 
@@ -30,7 +31,7 @@ import { CommonService } from './services/common.service';
     ItemModule,
     HttpModule
   ],
-  providers: [ContentResolver, CommonService],
+  providers: [ContentResolver, CommonService, ItemResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

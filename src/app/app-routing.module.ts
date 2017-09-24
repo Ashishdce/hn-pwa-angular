@@ -2,6 +2,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentResolver } from './services/content.resolver.service';
+import { ItemResolver } from './services/item.resolver.service';
 
 const routes: Routes = [
     {
@@ -100,7 +101,18 @@ const routes: Routes = [
     },
     {
         path: 'item',
-        loadChildren: 'app/components/item/item.module#ItemModule'
+        children: [{
+            path: ':id',
+            loadChildren: 'app/components/item/item.module#ItemModule',
+            resolve: {
+                content: ItemResolver
+            }
+        },
+        {
+            path: '',
+            redirectTo: '/newest/1',
+            pathMatch: 'full'
+        }]
     },
     {
         path: '',

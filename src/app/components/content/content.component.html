@@ -18,7 +18,7 @@
                 {{item.points}} &#9733; by
                 <span class="user-name" [innerHTML]="item.user"></span> |
                 <span class="time" [innerHTML]="item.time_ago"></span> |
-                <span class="comments" [innerHTML]="item.comments_count + ' comments'"></span>
+                <span class="comments" [innerHTML]="item.comments_count + ' comments'" (click)="navigate(item.id)"></span>
             </div>
         </div>
     </div>

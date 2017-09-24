@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
+  moduleId: module.id,
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  pageData: Object;
+  pageData: Array<Object>;
   currentPageNumber: number;
   currentType: string;
   count: number;
@@ -22,11 +23,13 @@ export class ContentComponent implements OnInit {
       }
     });
   }
-  navigate(direction: string) {
-    if (direction === 'left') {
+  navigate(type: string) {
+    if (type === 'left') {
       this.router.navigate([`${this.currentType}/${this.currentPageNumber - 1}`]);
-    } else {
+    } else if (type === 'right') {
       this.router.navigate([`${this.currentType}/${this.currentPageNumber + 1}`]);
+    } else {
+      this.router.navigate([`/item/${type}`]);
     }
   }
 }

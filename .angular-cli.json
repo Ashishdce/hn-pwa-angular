@@ -8,7 +8,8 @@
         "outDir": "dist",
         "assets": [
             "assets",
-            "favicon.ico"
+            "favicon.ico",
+            "manifest.json"
         ],
         "index": "index.html",
         "main": "main.ts",
@@ -25,7 +26,8 @@
         "environments": {
             "dev": "environments/environment.ts",
             "prod": "environments/environment.prod.ts"
-        }
+        },
+        "serviceWorker": true
     }],
     "e2e": {
         "protractor": {
