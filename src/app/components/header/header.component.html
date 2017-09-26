@@ -6,7 +6,7 @@
             <p>powered by</p>
             <p><span>Angular</span></p>
         </div>
-        <div class="image" (click)="router.navigate(['/newest'])" tabindex="0">
+        <div class="image" (click)="navigate()" tabindex="0">
             <img src="../../../assets/logo.png" alt="Logo">
         </div>
         <div class="overlay" *ngIf="showMenu" (click)="showMenu = false"></div>
@@ -22,7 +22,7 @@
         </div>
     </nav>
     <div class="page-detail">
-        <button type="button" class="back-button" (click)="navigateBack()" *ngIf="!showIndexing"> &lt; Back </button>
+        <button type="button" class="back-button" (click)="navigate('back')" *ngIf="!showIndexing"> &lt; Back </button>
         <p [innerHTML]="pageName"></p>
         <div class="page-indexing" *ngIf="showIndexing">
             <span *ngIf="prevPageNumber >= 1" [innerHTML]="prevPageNumber"></span>

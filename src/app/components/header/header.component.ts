@@ -52,8 +52,11 @@ export class HeaderComponent implements OnInit {
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }
-  navigateBack() {
-    this.location.back();
+  navigate(val?) {
+    if(val && val === 'back') {
+      this.location.back();
+    } else {
+      this.router.navigate(['/newest']);
+    }
   }
-
 }
