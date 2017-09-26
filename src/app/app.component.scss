@@ -1,0 +1,27 @@
+.alert {
+    position: fixed;
+    width: 50%;
+    height: 44px;
+    border-radius: 5px;
+    bottom: 7px;
+    z-index: 50;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.69);
+    color: #fff;
+    padding: 10px;
+    p {
+        width: calc(100% - 70px);
+        float: left;
+        padding-top: 5px;
+    }
+    button {
+        float: right;
+        width: 70px;
+        background: #fff;
+        border: none;
+        height: 25px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

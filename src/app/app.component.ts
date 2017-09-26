@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @HostListener("window:offline", [])
+  onWindowOffline() {
+   console.log('offline', window.navigator.onLine);
+   this.showAlert = true;
+   setTimeout(() => {
+     this.showAlert = false;
+   }, 5000);
+  }
+  @HostListener("window:online", [])
+  onWindowonline() {
+   console.log('online', window.navigator.onLine);
+   this.showAlert = false;
+  }
+  showAlert = false;
   title = 'app';
 }
