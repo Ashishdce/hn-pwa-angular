@@ -1,22 +1,44 @@
 .items-wrapper {
-    color: #673ab8;
+    color: #000;
+    background: rgba(130, 129, 129, 0.28);
+    padding: 15px 0;
     .item {
-        padding: 15px 0;
-        border-bottom: 1px solid #673ab8;
+        background: #fff;
+        margin-bottom: 15px;
+        box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+        position: relative;
         &:last-of-type {
-            border-bottom: none;
-            margin-bottom: 20px;
+            margin-bottom: 0;
+        }
+        .count {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #ff7416;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 10px;
+            color: white;
+            font-weight: 700;
+            padding-top: 7px;
+            top: 0;
+            transform: translateY(-50%);
         }
         .title {
             font-size: 16px;
-            font-weight: 600;
             text-align: left;
             a {
+                color: #000;
                 text-decoration: none;
             }
         }
+        .domain {
+            color: #ff7416;
+            font-size: 12px;
+        }
         .description {
             font-size: 12px;
+            margin-top: 8px;
             .user-name,
             .comments {
                 text-decoration: underline;
@@ -36,29 +58,30 @@
 }
 
 .buttons {
+    z-index: 20;
     position: fixed;
     top: 50vh;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translate(36%, -50%);
     height: 80px;
-    width: 50px;
-    background: rgba(103, 58, 184, 0.43);
+    width: 80px;
+    background: rgba(255, 115, 22, 0.4);
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     cursor: pointer;
     transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
-    text-align: center;
     font-size: 45px;
-    font-weight: 900;
-    padding-left: 8px;
-    color: #aa7ffa;
+    font-weight: 700;
+    padding: 16px 0 0 17px;
+    color: #ffffff;
     &:hover {
-        background: #673ab8;
+        background: #ff7316;
         color: #fff;
     }
 }
 
 .left-button {
-    transform: translateY(-50%) rotateY(180deg);
+    transform: translate(-36%, -50%) rotateY(180deg);
     left: 0;
 }
 

@@ -4,29 +4,24 @@ import { Http, HttpModule } from '@angular/http';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { CommonService } from './common.service';
 @Injectable()
-export class ContentResolver implements Resolve<any> {
+export class UserResolver implements Resolve<any> {
    private baseRoute = 'https://node-hnapi.herokuapp.com';
   constructor(private http: Http, private service: CommonService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
       this.service.setLoader(true);
-      const pageNum = route.params['id'];
-      const key = route.data.key;
+      const itemId = route.params['id'];
     return Observable.forkJoin(
-        this.http.get(`${this.baseRoute}/${key}?page=${pageNum}`).toPromise().then(res => {
-            this.service.setPageName(key, pageNum);
+        this.http.get(`${this.baseRoute}/user/${itemId}`).toPromise().then(res => {
+            this.service.setPageName('user');            
             this.service.setLoader(false);
+            console.log(res.json());
             return res.json();
         })
         .catch(err => {
             this.service.setLoader(false);
             console.log('Error', err);
         })
-    ).map(res => {
-        return {
-            data: res[0],
-            id: pageNum
-        };
-    });
+    );
   }
 }

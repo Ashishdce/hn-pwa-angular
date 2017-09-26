@@ -13,6 +13,7 @@ export class ItemResolver implements Resolve<any> {
       const itemId = route.params['id'];
     return Observable.forkJoin(
         this.http.get(`${this.baseRoute}/item/${itemId}`).toPromise().then(res => {
+            this.service.setPageName('item');
             this.service.setLoader(false);
             console.log(res.json());
             return res.json();

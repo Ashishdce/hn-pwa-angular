@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
+
 import { ContentModule } from './components/content/content.module';
 import { ItemModule } from './components/item/item.module';
 import { UserModule } from './components/user/user.module';
 import { AppRoutingModule } from './app-routing.module';
-
-import { ContentResolver } from './services/content.resolver.service';
-import { ItemResolver } from './services/item.resolver.service';
-import { CommonService } from './services/common.service';
+import { Services } from './services';
 
 
 @NgModule({
@@ -31,7 +29,7 @@ import { CommonService } from './services/common.service';
     ItemModule,
     HttpModule
   ],
-  providers: [ContentResolver, CommonService, ItemResolver],
+  providers: [Services],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

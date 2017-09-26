@@ -23,13 +23,15 @@ export class ContentComponent implements OnInit {
       }
     });
   }
-  navigate(type: string) {
+  navigate(type: string, val?) {
     if (type === 'left') {
       this.router.navigate([`${this.currentType}/${this.currentPageNumber - 1}`]);
     } else if (type === 'right') {
       this.router.navigate([`${this.currentType}/${this.currentPageNumber + 1}`]);
+    } else if (type === 'comments'){
+      this.router.navigate([`/item/${val}`]);
     } else {
-      this.router.navigate([`/item/${type}`]);
+      this.router.navigate([`/user/${val}`]);
     }
   }
 }

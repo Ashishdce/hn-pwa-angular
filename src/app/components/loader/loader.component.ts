@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonService } from '../../services/common.service';
+import { CommonService } from '../../services';
 @Component({
   selector: 'app-loader',
   moduleId: module.id,

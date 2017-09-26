@@ -1,12 +1,33 @@
-<header>
-    <nav>
-        <div class="image">
+<header [ngClass]="{'scroll-up': isScrolledUp}">
+    <nav class="padding">
+        <button class="menu-button" (click)="toggleMenu()" tabindex="0">&#9776;</button>
+        <div class="heading">
+            <p><span>HackerNews</span></p>
+            <p>powered by</p>
+            <p><span>Angular</span></p>
+        </div>
+        <div class="image" (click)="router.navigate(['/newest'])" tabindex="0">
             <img src="../../../assets/logo.png" alt="Logo">
         </div>
-        <a routerLink="/newest" routerLinkActive="active" class="link">Top</a>
-        <a routerLink="/news" routerLinkActive="active" class="link">New</a>
-        <a routerLink="/show" routerLinkActive="active" class="link">Show</a>
-        <a routerLink="/ask" routerLinkActive="active" class="link">Asks</a>
-        <a routerLink="/jobs" routerLinkActive="active" class="link">Jobs</a>
+        <div class="overlay" *ngIf="showMenu" (click)="showMenu = false"></div>
+        <div class="links" *ngIf="showMenu">
+            <a routerLink="/newest" routerLinkActive="active" class="link" (click)="showMenu = false">Top</a>
+            <a routerLink="/news" routerLinkActive="active" class="link" (click)="showMenu = false">New</a>
+            <a routerLink="/show" routerLinkActive="active" class="link" (click)="showMenu = false">Show</a>
+            <a routerLink="/ask" routerLinkActive="active" class="link" (click)="showMenu = false">Asks</a>
+            <a routerLink="/jobs" routerLinkActive="active" class="link" (click)="showMenu = false">Jobs</a>
+            <a [href]="githubLink" target="_blank" class="link" (click)="showMenu = false"><img src="../../../assets/github-logo.png" alt="github logo">
+                <p>GitHub</p>
+            </a>
+        </div>
     </nav>
+    <div class="page-detail">
+        <button type="button" class="back-button" (click)="navigateBack()" *ngIf="!showIndexing"> &lt; Back </button>
+        <p [innerHTML]="pageName"></p>
+        <div class="page-indexing" *ngIf="showIndexing">
+            <span *ngIf="prevPageNumber >= 1" [innerHTML]="prevPageNumber"></span>
+            <span class="current" [innerHTML]="curPageNumber"></span>
+            <span [innerHTML]="nextPageNumber"></span>
+        </div>
+    </div>
 </header>
