@@ -9,16 +9,19 @@ export class AppComponent {
   @HostListener("window:offline", [])
   onWindowOffline() {
    console.log('offline', window.navigator.onLine);
+   this.greyOut = window.navigator.onLine;
    this.showAlert = true;
    setTimeout(() => {
      this.showAlert = false;
-   }, 5000);
+    }, 5000);
   }
   @HostListener("window:online", [])
   onWindowonline() {
-   console.log('online', window.navigator.onLine);
+    console.log('online', window.navigator.onLine);
+    this.greyOut = window.navigator.onLine;
    this.showAlert = false;
   }
   showAlert = false;
+  greyOut = window.navigator.onLine;
   title = 'app';
 }

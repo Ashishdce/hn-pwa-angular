@@ -8,7 +8,7 @@
                 }
             },
             "cache": {
-                "optimizeFor": "performance",
+                "optimizeFor": "freshness",
                 "maxAgeMs": 3600000,
                 "maxEntries": 20,
                 "strategy": "lru"

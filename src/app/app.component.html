@@ -1,9 +1,11 @@
-<app-header></app-header>
-<div class="wrapper">
-    <router-outlet></router-outlet>
+<div [ngClass]="{'grey-out': !greyOut}">
+    <app-header></app-header>
+    <div class="wrapper">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+    <app-loader></app-loader>
 </div>
-<app-footer></app-footer>
-<app-loader></app-loader>
 <div class="alert" *ngIf="showAlert">
     <p>You are now offline.</p>
     <button type="button" (click)="showAlert = false">Dismiss</button>
