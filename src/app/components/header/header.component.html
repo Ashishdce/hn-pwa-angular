@@ -16,7 +16,7 @@
             <a routerLink="/show" routerLinkActive="active" class="link" (click)="showMenu = false">Show</a>
             <a routerLink="/ask" routerLinkActive="active" class="link" (click)="showMenu = false">Asks</a>
             <a routerLink="/jobs" routerLinkActive="active" class="link" (click)="showMenu = false">Jobs</a>
-            <a [href]="githubLink" target="_blank" class="link" (click)="showMenu = false"><img src="../../../assets/github-logo.png" alt="github logo">
+            <a [href]="githubLink" target="_blank" class="link" rel="noopener" (click)="showMenu = false"><img src="../../../assets/github-logo.png" alt="github logo">
                 <p>GitHub</p>
             </a>
         </div>

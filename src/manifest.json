@@ -1,8 +1,8 @@
 {
     "name": "HNPWA-Angular",
     "short_name": "HNPWA-Angular",
-    "theme_color": "#FFFFFF",
-    "background_color": "#3F51B5",
+    "theme_color": "#ff7316",
+    "background_color": "#ff7316",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait",

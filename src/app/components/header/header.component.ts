@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
-    console.log(this.route);
   }
   toggleMenu() {
     this.showMenu = !this.showMenu;
