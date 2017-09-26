@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { HostListener} from "@angular/core";
-import { CommonService } from '../../services';
 
 @Component({
   selector: 'app-user',
@@ -18,5 +15,4 @@ export class UserComponent implements OnInit {
     this.userData = this.route.snapshot.data['content'][0];
     console.log(this.userData);
   }
-
 }

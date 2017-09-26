@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-
-  constructor() { }
+  commentData: any;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.commentData = this.route.snapshot.data['content'][0];
+    console.log(this.commentData);
   }
 
 }
