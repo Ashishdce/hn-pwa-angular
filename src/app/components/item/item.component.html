@@ -1,0 +1,24 @@
+<div class="item padding">
+    <p [innerHTML]="commentData?.title"></p>
+    <div class="about clearfix">
+        <a [href]="commentData?.url" target="_blank" rel="noopener">Read about it</a>
+        <p (click)="showMore = !showMore"><span [ngClass]="{'rotate': showMore}">{{'&#10095;'}}</span>{{ (showMore ? 'Show Less' : 'Show More')}}
+        </p>
+    </div>
+    <div class="more-info padding" *ngIf="showMore">
+        <p>By
+            <a [innerHTML]="' ' + commentData?.user" [routerLink]="'/user/' + commentData?.user"></a>
+        </p>
+        <p [innerHTML]="(commentData?.points ? commentData?.points : 0) + ' &#9733;'"></p>
+        <p [innerHTML]="'Posted ' + commentData?.time_ago"></p>
+        <p [innerHTML]="commentData?.domain" *ngIf="commentData?.domain"></p>
+    </div>
+</div>
+<div class="comments-wrapper padding">
+    <p [ngClass]="{'comment-header': commentData?.comments_count }" [innerHTML]="commentData?.comments_count ? commentData?.comments_count + ' comments' : 'No Comments yet.'"></p>
+    <div class="comments" *ngIf="commentData?.comments_count">
+        <div class="comment-item" *ngFor="let comment of commentData?.comments; let i = index">
+            <app-comment [data]="comment"></app-comment>
+        </div>
+    </div>
+</div>

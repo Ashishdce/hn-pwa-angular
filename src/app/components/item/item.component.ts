@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class ItemComponent implements OnInit {
   commentData: any;
+  showMore: false;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

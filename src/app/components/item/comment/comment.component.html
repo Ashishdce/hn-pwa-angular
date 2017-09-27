@@ -1,0 +1,20 @@
+<div class="comment" [style.padding-left]="dynamicPadding">
+    <ng-template #noUser>
+        <p>No User</p>
+    </ng-template>
+    <p *ngIf="data?.user; else noUser">By
+        <a [innerHTML]="' ' + data?.user" [routerLink]="'/user/' + data?.user"></a>
+    </p>
+    <p [innerHTML]="data?.time_ago"></p>
+    <p [innerHTML]="data?.content"></p>
+    <div class="comment-wrapper">
+        <span class="toggle" *ngIf="data?.comments?.length" (click)="toggleComments = !toggleComments">
+            <span [ngClass]="{'rotate': !toggleComments}">{{ '&#10095;' }}</span>{{ toggleComments ? 'Hide Comments' : 'Show Comments'}}
+        </span>
+        <div *ngIf="toggleComments">
+            <div class="comment-item" *ngFor="let comment of data?.comments; let i  = index">
+                <app-comment [data]="comment" *ngIf="comment"></app-comment>
+            </div>
+        </div>
+    </div>
+</div>

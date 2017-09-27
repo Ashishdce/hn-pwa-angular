@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,11 +17,23 @@ export class AppComponent {
   }
   @HostListener("window:online", [])
   onWindowonline() {
-    console.log('online', window.navigator.onLine);
-    this.greyOut = window.navigator.onLine;
+  this.greyOut = window.navigator.onLine;
+   console.log('online', window.navigator.onLine);
    this.showAlert = false;
   }
+
+  constructor(private router: Router) {}
   showAlert = false;
   greyOut = window.navigator.onLine;
   title = 'app';
+  
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0);
+    });
+  }
 }
+
