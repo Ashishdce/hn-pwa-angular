@@ -9,7 +9,7 @@
     <p [innerHTML]="data?.content"></p>
     <div class="comment-wrapper">
         <span class="toggle" *ngIf="data?.comments?.length" (click)="toggleComments = !toggleComments">
-            <span [ngClass]="{'rotate': !toggleComments}">{{ '&#10095;' }}</span>{{ toggleComments ? 'Hide Comments' : 'Show Comments('+ data?.comments.length +')'}}
+            <span [ngClass]="{'rotate': !toggleComments}">{{ '&#10095;' }}</span>{{ toggleComments ? '&nbsp;&nbsp; Hide Comments&nbsp;' : '&nbsp;&nbsp; Show Comments('+ data?.comments.length +')&nbsp;'}}
         </span>
         <div *ngIf="toggleComments">
             <div class="comment-item" *ngFor="let comment of data?.comments; let i  = index">
