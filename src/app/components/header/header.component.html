@@ -30,4 +30,5 @@
             <span [innerHTML]="nextPageNumber"></span>
         </div>
     </div>
+    <button type="button" [ngClass]="{'scroll-up-button': true, 'show-up': showScrollButton}" (click)="scrollToTop()">&#10094;</button>
 </header>

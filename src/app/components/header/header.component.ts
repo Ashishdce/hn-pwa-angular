@@ -14,14 +14,21 @@ export class HeaderComponent implements OnInit {
   onWindowScroll() {
    let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
    if (number >= 83) {
+     if (number >=250) {
+       this.showScrollButton = true;
+     } else {
+       this.showScrollButton = false;
+     }
      this.isScrolledUp = true;
   } else {
     this.isScrolledUp = false;
+    this.showScrollButton = false;
    }
   }
   showMenu = false;
   isScrolledUp = false;
   showIndexing = true;
+  showScrollButton = false;
   pageName = 'Top Stories';
   githubLink = 'https://github.com/Ashishdce/hn-pwa-angular';
   curPageNumber = 1;
@@ -57,5 +64,8 @@ export class HeaderComponent implements OnInit {
     } else {
       this.router.navigate(['/newest']);
     }
+  }
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 }

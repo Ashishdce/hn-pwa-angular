@@ -7,7 +7,7 @@ import {style} from '@angular/animations';
 })
 export class CommentComponent implements OnInit {
   @Input('data') data;
-  toggleComments = true;
+  toggleComments = false;
   dynamicPadding;
   constructor() { }
 
