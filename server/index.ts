@@ -8,7 +8,7 @@ const document = fs.readFileSync(__dirname + '/dist-server/index.html', 'utf8');
 const AppServerModuleNgFactory = require(__dirname + '/dist-server/main.bundle').AppServerModuleNgFactory;
 
 const app = express();
-app.get('**', (req, res) => {
+app.get('/^(.(?!\.js$))+$/', (req, res) => {
     const url = req.path;
     renderModuleFactory(AppServerModuleNgFactory, {document, url})
     .then(html => {
