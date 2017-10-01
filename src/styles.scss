@@ -1,4 +1,14 @@
-@import '../node_modules/bulma/css/bulma.css';
+@import '../node_modules/bulma/sass/utilities/_all.sass';
+@import '../node_modules/bulma/sass/base/_all.sass';
+@import '../node_modules/bulma/sass/components/dropdown.sass';
+@import '../node_modules/bulma/sass/components/level.sass';
+@import '../node_modules/bulma/sass/components/modal.sass';
+@import '../node_modules/bulma/sass/components/nav.sass';
+@import '../node_modules/bulma/sass/components/navbar.sass';
+@import '../node_modules/bulma/sass/components/pagination.sass';
+@import '../node_modules/bulma/sass/elements/_all.sass';
+@import '../node_modules/bulma/sass/grid/_all.sass';
+@import '../node_modules/bulma/sass/layout/_all.sass';
 
 /* You can add global styles to this file, and also import other style files */
 
