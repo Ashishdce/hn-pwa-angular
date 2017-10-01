@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { HostListener} from "@angular/core";
 import { CommonService } from '../../services';
 @Component({
   selector: 'app-header',
@@ -10,32 +9,19 @@ import { CommonService } from '../../services';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  // @HostListener("window:scroll", [])
-  // onWindowScroll() {
-  //  let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  //  if (number >= 83) {
-  //    if (number >=250) {
-  //      this.showScrollButton = true;
-  //    } else {
-  //      this.showScrollButton = false;
-  //    }
-  //    this.isScrolledUp = true;
-  // } else {
-  //   this.isScrolledUp = false;
-  //   this.showScrollButton = false;
-  //  }
-  // }
   showMenu = false;
   isScrolledUp = false;
   showIndexing = true;
   showScrollButton = false;
+  currentType;
+  count = 0;
+  pageType;
   pageName = 'Top Stories';
-  githubLink = 'https://github.com/Ashishdce/hn-pwa-angular';
   curPageNumber = 1;
-  prevPageNumber = 0
+  prevPageNumber = 0;
   nextPageNumber = 2;
   constructor(
-    private router: Router, 
+    private router: Router,
     private route: ActivatedRoute,
     private service: CommonService,
     private location: Location) { }
@@ -44,6 +30,7 @@ export class HeaderComponent implements OnInit {
     this.service.$pageDetails.subscribe(data => {
       if (data) {
         this.pageName = data['name'];
+        this.pageType = data['type'];
         this.curPageNumber = parseInt(data['pageNumber']);
         if (!this.curPageNumber) {
           this.showIndexing = false;
@@ -54,6 +41,11 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+    this.service.$totalCount.subscribe(count => {
+      if (count) {
+        this.count = count;
+      }
+     });
   }
   toggleMenu() {
     this.showMenu = !this.showMenu;
@@ -62,7 +54,11 @@ export class HeaderComponent implements OnInit {
     if (val && val === 'back') {
       this.location.back();
     } else {
-      this.router.navigate(['/newest']);
+      if (val === 'next') {
+        this.router.navigate([`${this.pageType}/${this.curPageNumber + 1}`]);
+      } else {
+        this.router.navigate([`${this.pageType}/${this.curPageNumber - 1}`]);
+      }
     }
   }
   scrollToTop() {

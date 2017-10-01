@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 export class CommonService {
   public $loader = new Subject<boolean>();
   public $pageDetails = new Subject<Object>();
+  public $totalCount = new Subject<number>();
   public routeToNames = {
     'newest': 'Top Stories',
     'news': 'News',
@@ -13,15 +14,16 @@ export class CommonService {
     'jobs': 'Jobs',
     'user': 'User Information',
     'item': 'Comments'
-  }
+  };
   setLoader(val: boolean) {
       this.$loader.next(val);
   }
   setPageName(name: string, pageNumber?) {
     const obj = {
       name: this.routeToNames[name],
-      pageNumber: pageNumber
-    }
+      pageNumber: pageNumber,
+      type: name
+    };
     this.$pageDetails.next(obj);
   }
 }

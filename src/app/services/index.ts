@@ -13,4 +13,4 @@ export const Services = [
     ItemResolver,
     UserResolver,
     ContentResolver
-]
+];

@@ -1,36 +1,6 @@
-.wrapper {
-    .name-and-karma {
-        margin-bottom: 15px;
-        .name {
-            width: calc(100% - 100px);
-            float: left;
-            font-size: 22px;
-            font-weight: 600;
-            color: #ff7416;
-        }
-        .karma {
-            width: 100px;
-            float: left;
-            text-align: right;
-            font-size: 18px;
-            font-weight: 700;
-            color: #858585;
-        }
-    }
-    .description {
-        color: #9b9b9b;
-        span {
-            color: #000;
-            font-weight: 600;
-        }
-        .creation {
-            margin-bottom: 15px;
-            font-size: 12px;
-        }
-        .about {
-            margin: 15px 0;
-            line-height: 22px;
-            font-size: 16px;
-        }
+.inner-tile {
+    overflow: hidden;
+    p {
+        word-wrap: break-word;
     }
 }
