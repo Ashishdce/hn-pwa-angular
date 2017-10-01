@@ -7,7 +7,11 @@
             <p><span>Angular</span></p>
         </div>
         <div class="image" (click)="navigate()" tabindex="0">
-            <img src="../../../assets/logo.png" alt="Logo">
+            <picture>
+                <source srcset="../../../assets/logo.webp" type="image/webp">
+                <source srcset="../../../assets/logo.png" type="image/png">
+                <img src="../../../assets/logo.png" alt="Logo image">
+            </picture>
         </div>
         <div class="overlay" *ngIf="showMenu" (click)="showMenu = false"></div>
         <div class="links" *ngIf="showMenu">
