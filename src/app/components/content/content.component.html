@@ -2,7 +2,7 @@
 <div class="right-button buttons" *ngIf="pageData.length === 30" (click)="navigate('right')" tabindex="0"> &gt;</div> -->
 <div class="section">
     <div class="container">
-        <div class="tile is-ancestor is-parent">
+        <div class="tile is-ancestor is-vertical is-parent">
             <article [ngClass]="{'tile box': true, 'is-child': true, 'notification': true, 'is-primary': i%4 === 1, 'is-info': i%4===2, 'is-success': i%4===3, 'is-warning': i%4===0}" *ngFor="let item of pageData; let i = index">
                 <div class="count">
                     {{i+count}}

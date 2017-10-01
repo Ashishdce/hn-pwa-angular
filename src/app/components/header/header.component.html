@@ -1,5 +1,5 @@
 <header class="hero is-primary">
-    <button class="toggle-button button is-inverted is-outlined" aria-haspopup="true" aria-controls="dropdown-menu" (click)="toggleMenu()" tabindex="0">&#9776;</button>
+    <button class="toggle-button button is-inverted is-outlined is-hidden-tablet" aria-haspopup="true" aria-controls="dropdown-menu" (click)="toggleMenu()" tabindex="0">&#9776;</button>
     <div class="modal-background" *ngIf="showMenu" (click)="showMenu = false"></div>
     <div class="dropdown" [ngClass]="{'is-active': showMenu}">
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
@@ -21,18 +21,34 @@
         </div>
     </nav>
 </header>
-<div class="page-type">
+<div class="navbar has-shadow is-hidden-mobile" *ngIf="showIndexing">
+    <div class="container">
+        <div class="navbar-tabs">
+            <a routerLink="/newest" routerLinkActive="is-active" class="navbar-item is-tab">Top</a>
+            <a routerLink="/news" routerLinkActive="is-active" class="navbar-item is-tab">New</a>
+            <a routerLink="/show" routerLinkActive="is-active" class="navbar-item is-tab">Show</a>
+            <a routerLink="/ask" routerLinkActive="is-active" class="navbar-item is-tab">Asks</a>
+            <a routerLink="/jobs" routerLinkActive="is-active" class="navbar-item is-tab">Jobs</a>
+        </div>
+    </div>
+</div>
+<div class="page-type is-hidden-tablet">
     <p class="heading" [innerHTML]="pageName"></p>
 </div>
 <div class="pagination-section" *ngIf="showIndexing">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <button class="pagination-previous button  is-primary is-outlined" [disabled]="prevPageNumber < 1" (click)="navigate('prev')">Previous</button>
-        <a class="pagination-link is-current" aria-current="page" [innerHTML]="curPageNumber"></a>
-        <button class="pagination-next button  is-primary is-outlined" (click)="navigate('next')" [disabled]="count < 30">Next</button>
-    </nav>
+    <div class="container">
+        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+            <button class="is-hidden-tablet pagination-previous button  is-primary is-outlined" [disabled]="prevPageNumber < 1" (click)="navigate('prev')">Previous</button>
+            <button class="is-hidden-mobile button  is-primary is-outlined" [disabled]="prevPageNumber < 1" (click)="navigate('prev')">Previous</button>
+            <a class="pagination-link is-current" aria-current="page" [innerHTML]="curPageNumber"></a>
+            <button class="pagination-next button  is-primary is-outlined" (click)="navigate('next')" [disabled]="count < 30">Next</button>
+        </nav>
+    </div>
 </div>
 <div class="pagination-section back-section" *ngIf="!showIndexing">
-    <nav class="pagination is-centered" role="navigation" aria-label="back">
-        <button class="pagination-previous button  is-primary is-outlined" (click)="navigate('back')">Back</button>
-    </nav>
+    <div class="container">
+        <nav class="pagination is-centered" role="navigation" aria-label="back">
+            <button class="pagination-previous button  is-primary is-outlined" (click)="navigate('back')">Back</button>
+        </nav>
+    </div>
 </div>

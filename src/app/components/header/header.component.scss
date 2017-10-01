@@ -6,6 +6,9 @@ header {
     }
     .hero-body {
         padding: 1rem 0 1rem 6.5rem;
+        @media screen and (min-width: 768px) {
+            padding: 1rem 0 1rem 1.5rem;
+        }
     }
     .toggle-button {
         position: absolute;
