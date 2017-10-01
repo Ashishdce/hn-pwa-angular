@@ -22,7 +22,7 @@ import { Services } from './services';
     LoaderComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'angularHN'}),
     AppRoutingModule,
     ContentModule,
     UserModule,

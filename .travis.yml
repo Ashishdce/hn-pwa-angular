@@ -12,6 +12,7 @@ before_script:
 
 script:
   - ng build --prod
+  - npm run ssr-setup
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN

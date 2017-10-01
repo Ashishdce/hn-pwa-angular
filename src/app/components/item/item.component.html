@@ -4,7 +4,7 @@
         <a [href]="commentData?.url" target="_blank" rel="noopener">Read about it</a>
         <p (click)="showMore = !showMore"><span [ngClass]="{'rotate': showMore}">{{'&#10095;'}}</span>{{showMore ? 'Show Less' : 'Show More'}}</p>
     </div>
-    <div class="more-info padding" *ngIf="showMore">
+    <div [ngClass]="{'more-info': true, 'padding': showMore, 'animate': showMore }">
         <p>By
             <a [innerHTML]="' ' + commentData?.user" [routerLink]="'/user/' + commentData?.user"></a>
         </p>

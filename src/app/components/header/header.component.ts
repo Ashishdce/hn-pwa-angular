@@ -10,21 +10,21 @@ import { CommonService } from '../../services';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-   let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-   if (number >= 83) {
-     if (number >=250) {
-       this.showScrollButton = true;
-     } else {
-       this.showScrollButton = false;
-     }
-     this.isScrolledUp = true;
-  } else {
-    this.isScrolledUp = false;
-    this.showScrollButton = false;
-   }
-  }
+  // @HostListener("window:scroll", [])
+  // onWindowScroll() {
+  //  let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  //  if (number >= 83) {
+  //    if (number >=250) {
+  //      this.showScrollButton = true;
+  //    } else {
+  //      this.showScrollButton = false;
+  //    }
+  //    this.isScrolledUp = true;
+  // } else {
+  //   this.isScrolledUp = false;
+  //   this.showScrollButton = false;
+  //  }
+  // }
   showMenu = false;
   isScrolledUp = false;
   showIndexing = true;
@@ -59,13 +59,13 @@ export class HeaderComponent implements OnInit {
     this.showMenu = !this.showMenu;
   }
   navigate(val?) {
-    if(val && val === 'back') {
+    if (val && val === 'back') {
       this.location.back();
     } else {
       this.router.navigate(['/newest']);
     }
   }
   scrollToTop() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }
 }

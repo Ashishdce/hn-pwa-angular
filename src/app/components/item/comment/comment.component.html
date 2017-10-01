@@ -11,8 +11,8 @@
         <span class="toggle" *ngIf="data?.comments?.length" (click)="toggleComments = !toggleComments">
             <span [ngClass]="{'rotate': !toggleComments}">{{ '&#10095;' }}</span>{{ toggleComments ? '&nbsp;&nbsp; Hide Comments&nbsp;' : '&nbsp;&nbsp; Show Comments('+ data?.comments.length +')&nbsp;'}}
         </span>
-        <div *ngIf="toggleComments">
-            <div class="comment-item" *ngFor="let comment of data?.comments; let i  = index">
+        <div>
+            <div [ngClass]="{'toggleAnimate': toggleComments, 'comment-item': true}" *ngFor="let comment of data?.comments; let i  = index">
                 <app-comment [data]="comment" *ngIf="comment"></app-comment>
             </div>
         </div>
