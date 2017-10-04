@@ -1,24 +1,17 @@
 {
-  "hosting": {
-    "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "hnAngularApp"
-      }
-    ],
-    "headers": [
-      {
-        "source": "/newest/*",
-        "headers": [
-          {
-            "key": "Link",
-            "value":
-              "</main.js>;rel=preload;as=script,</vendor.js>;rel=preload;as=script,</inline.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</styles.css>;rel=preload;as=style"
-          }
-        ]
-      }
-    ]
-  }
+    "hosting": {
+        "public": "dist",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [{
+            "source": "**",
+            "function": "hnAngularApp"
+        }],
+        "headers": [{
+            "source": "/newest/*",
+            "headers": [{
+                "key": "Link",
+                "value": "</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</styles.bundle.css>;rel=preload;as=style"
+            }]
+        }]
+    }
 }

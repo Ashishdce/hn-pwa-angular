@@ -1,4 +1,4 @@
-import { HeaderComponent } from './components/header/header.component';
+import { SampleComponent } from './components/sample/sample.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentResolver, UserResolver, ItemResolver} from './services';
@@ -123,6 +123,10 @@ const routes: Routes = [
             redirectTo: '/newest/1',
             pathMatch: 'full'
         }]
+    },
+    {
+        path: 'sample',
+        component: SampleComponent
     },
     {
         path: '',
