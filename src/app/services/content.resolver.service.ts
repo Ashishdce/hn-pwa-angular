@@ -1,12 +1,12 @@
 import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
-import { Http, HttpModule } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { CommonService } from './common.service';
 @Injectable()
 export class ContentResolver implements Resolve<any> {
    private baseRoute = 'https://node-hnapi.herokuapp.com';
-  constructor(private http: Http, private service: CommonService) {}
+  constructor(private http: HttpClient, private service: CommonService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
       this.service.setLoader(true);
@@ -16,7 +16,7 @@ export class ContentResolver implements Resolve<any> {
         this.http.get(`${this.baseRoute}/${key}?page=${pageNum}`).toPromise().then(res => {
             this.service.setPageName(key, pageNum);
             this.service.setLoader(false);
-            return res.json();
+            return res;
         })
         .catch(err => {
             this.service.setLoader(false);

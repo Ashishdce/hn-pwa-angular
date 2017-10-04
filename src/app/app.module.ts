@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,7 +27,7 @@ import { Services } from './services';
     ContentModule,
     UserModule,
     ItemModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [Services],
   bootstrap: [AppComponent]
