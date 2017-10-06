@@ -8,10 +8,3 @@ export let hnAngularApp = angularUniversal.trigger({
     browserCacheExpiry: 600
 });
 
-
-
-
-// providers: [{
-//     provide: 'serverUrl',
-//     useValue: `${req.protocol}://${req.get('host')}`
-//   }]

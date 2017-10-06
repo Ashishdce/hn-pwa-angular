@@ -11,10 +11,8 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng build --prod
-  - npm run server-build
-  - cp -u dist/index.html functions/dist-server/index.html
-  - tsc -p server/tsconfig.functions.json
+  - ng build --prod --output-hashing none
+  - npm run ssr-setup
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
