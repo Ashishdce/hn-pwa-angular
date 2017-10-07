@@ -2,7 +2,6 @@ import { CommonService } from '../../services';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
-  moduleId: module.id,
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']

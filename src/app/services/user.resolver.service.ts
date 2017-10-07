@@ -11,8 +11,7 @@ export class UserResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot) {
       this.service.setLoader(true);
       const itemId = route.params['id'];
-    return Observable.forkJoin(
-        this.http.get(`${this.baseRoute}/user/${itemId}`).toPromise().then(res => {
+    return this.http.get(`${this.baseRoute}/user/${itemId}`).toPromise().then(res => {
             this.service.setPageName('user');
             this.service.setLoader(false);
             return res;
@@ -20,7 +19,6 @@ export class UserResolver implements Resolve<any> {
         .catch(err => {
             this.service.setLoader(false);
             console.log('Error', err);
-        })
-    );
+        });
   }
 }

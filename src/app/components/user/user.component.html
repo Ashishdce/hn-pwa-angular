@@ -10,6 +10,7 @@
                         <p class="subtitle">About <span>{{userData.id}}...</span></p>
                         <p class="about" [innerHTML]="userData.about ? userData.about: 'Nothing to display about this user...'"></p>
                     </div>
+                    {{data | json}}
                 </div>
             </div>
         </div>

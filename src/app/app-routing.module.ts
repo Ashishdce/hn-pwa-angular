@@ -1,4 +1,5 @@
-import { SampleComponent } from './components/sample/sample.component';
+import { UserComponent } from './components/user/user.component';
+
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentResolver, UserResolver, ItemResolver} from './services';
@@ -98,7 +99,8 @@ const routes: Routes = [
         path: 'user',
         children: [{
             path: ':id',
-            loadChildren: 'app/components/user/user.module#UserModule',
+            // loadChildren: 'app/components/user/user.module#UserModule',
+            component: UserComponent,
             resolve: {
                 content: UserResolver
             }
@@ -107,7 +109,7 @@ const routes: Routes = [
             path: '',
             redirectTo: '/newest/1',
             pathMatch: 'full'
-        }]
+        }],
     },
     {
         path: 'item',
@@ -123,10 +125,6 @@ const routes: Routes = [
             redirectTo: '/newest/1',
             pathMatch: 'full'
         }]
-    },
-    {
-        path: 'sample',
-        component: SampleComponent
     },
     {
         path: '',

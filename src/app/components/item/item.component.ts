@@ -3,7 +3,6 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-item',
-  moduleId: module.id,
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })

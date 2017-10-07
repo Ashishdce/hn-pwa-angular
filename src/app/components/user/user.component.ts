@@ -9,10 +9,11 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   userData: any;
+  data;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userData = this.route.snapshot.data['content'][0];
+    this.userData = this.route.snapshot.data['content'];
     console.log(this.userData);
   }
 }

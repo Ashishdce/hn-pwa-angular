@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "public": "dist",
+        "public": "functions/dist",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
         "rewrites": [{
             "source": "**",
@@ -10,7 +10,7 @@
             "source": "/newest/*",
             "headers": [{
                 "key": "Link",
-                "value": "</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</styles.bundle.css>;rel=preload;as=style"
+                "value": "</styles.bundle.css>;rel=preload;as=style,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script"
             }]
         }]
     }
