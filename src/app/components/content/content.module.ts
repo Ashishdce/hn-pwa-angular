@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ContentChild, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContentComponent } from './content.component';
-// import { ContentResolver } from './content.resolver.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { ContentComponent } from './content.component';
         }
     ])
   ],
-//   providers: [ContentResolver],
   exports: [ContentComponent],
   entryComponents: [ContentComponent]
 })

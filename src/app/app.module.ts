@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { SampleComponent } from './components/sample/sample.component';
 import { UserComponent } from './components/user/user.component';
 
 import { ContentModule } from './components/content/content.module';
@@ -23,7 +22,6 @@ import { Services } from './services';
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    SampleComponent,
     UserComponent
   ],
   imports: [

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { CommonService } from '../../services';
+import { Renderer2 } from '@angular/core';
 @Component({
   selector: 'app-header',
   moduleId: module.id,
@@ -10,6 +11,7 @@ import { CommonService } from '../../services';
 })
 export class HeaderComponent implements OnInit {
   showMenu = false;
+  fixHeader = false;
   isScrolledUp = false;
   showIndexing = true;
   showScrollButton = false;
@@ -18,34 +20,43 @@ export class HeaderComponent implements OnInit {
   pageType;
   pageName = 'Top Stories';
   curPageNumber = 1;
-  prevPageNumber = 0;
-  nextPageNumber = 2;
+  currentEvent;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private service: CommonService,
-    private location: Location) { }
+    private location: Location,
+    private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.renderer.listen('window', 'scroll', (e) => {
+      const yScroll = e['path'][1]['scrollY'];
+      this.currentEvent = e;
+      if (yScroll >= 115) {
+        if (yScroll > 300) {
+          this.showScrollButton = true;
+        } else {
+          this.showScrollButton = false;
+        }
+        this.fixHeader = true;
+      } else {
+        this.showScrollButton = false;
+        this.fixHeader = false;
+      }
+    });
+
     this.service.$pageDetails.subscribe(data => {
       if (data) {
         this.pageName = data['name'];
         this.pageType = data['type'];
-        this.curPageNumber = parseInt(data['pageNumber']);
+        this.curPageNumber = data['id'] ? data['id'] : null;
         if (!this.curPageNumber) {
           this.showIndexing = false;
         } else {
-          this.nextPageNumber = this.curPageNumber + 1;
-          this.prevPageNumber = this.curPageNumber - 1;
           this.showIndexing = true;
         }
       }
     });
-    this.service.$totalCount.subscribe(count => {
-      if (count) {
-        this.count = count;
-      }
-     });
   }
   toggleMenu() {
     this.showMenu = !this.showMenu;
@@ -53,15 +64,11 @@ export class HeaderComponent implements OnInit {
   navigate(val?) {
     if (val && val === 'back') {
       this.location.back();
-    } else {
-      if (val === 'next') {
-        this.router.navigate([`${this.pageType}/${this.curPageNumber + 1}`]);
-      } else {
-        this.router.navigate([`${this.pageType}/${this.curPageNumber - 1}`]);
-      }
+    } else if (val && val === 'image-click') {
+      this.router.navigate(['/newest/1']);
     }
   }
-  scrollToTop() {
-    // window.scrollTo(0, 0);
+  scrollUp() {
+    this.currentEvent['path'][1].scrollTo(0, 0);
   }
 }

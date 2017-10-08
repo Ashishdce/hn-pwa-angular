@@ -18,7 +18,6 @@ import { CommentComponent } from './comment/comment.component';
         }
     ])
   ],
-  providers: [],
   exports: [ItemComponent],
   entryComponents: [ItemComponent]
 })

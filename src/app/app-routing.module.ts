@@ -2,7 +2,7 @@ import { UserComponent } from './components/user/user.component';
 
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContentResolver, UserResolver, ItemResolver} from './services';
+import { DataResolver } from './services';
 
 const routes: Routes = [
     {
@@ -11,7 +11,7 @@ const routes: Routes = [
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
             resolve: {
-                content: ContentResolver
+                content: DataResolver
             },
             data: {
                 key: 'newest'
@@ -29,7 +29,7 @@ const routes: Routes = [
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
             resolve: {
-                content: ContentResolver
+                content: DataResolver
             },
             data: {
                 key: 'news'
@@ -47,7 +47,7 @@ const routes: Routes = [
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
             resolve: {
-                content: ContentResolver
+                content: DataResolver
             },
             data: {
                 key: 'show'
@@ -65,7 +65,7 @@ const routes: Routes = [
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
             resolve: {
-                content: ContentResolver
+                content: DataResolver
             },
             data: {
                 key: 'ask'
@@ -83,7 +83,7 @@ const routes: Routes = [
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
             resolve: {
-                content: ContentResolver
+                content: DataResolver
             },
             data: {
                 key: 'jobs'
@@ -102,7 +102,10 @@ const routes: Routes = [
             // loadChildren: 'app/components/user/user.module#UserModule',
             component: UserComponent,
             resolve: {
-                content: UserResolver
+                content: DataResolver
+            },
+            data: {
+                key: 'user'
             }
         },
         {
@@ -117,7 +120,10 @@ const routes: Routes = [
             path: ':id',
             loadChildren: 'app/components/item/item.module#ItemModule',
             resolve: {
-                content: ItemResolver
+                content: DataResolver
+            },
+            data: {
+                key: 'item'
             }
         },
         {

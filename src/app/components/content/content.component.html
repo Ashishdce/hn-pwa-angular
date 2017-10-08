@@ -1,29 +1,25 @@
-<!-- <div class="left-button buttons" *ngIf="currentPageNumber - 1 > 0" (click)="navigate('left')" tabindex="0"> &gt; </div>
-<div class="right-button buttons" *ngIf="pageData.length === 30" (click)="navigate('right')" tabindex="0"> &gt;</div> -->
-<div class="section">
-    <div class="container">
-        <div class="tile is-ancestor is-vertical is-parent">
-            <article [ngClass]="{'tile box': true, 'is-child': true, 'notification': true, 'is-primary': i%4 === 1, 'is-info': i%4===2, 'is-success': i%4===3, 'is-warning': i%4===0}" *ngFor="let item of pageData; let i = index">
-                <div class="count">
-                    {{i+count}}
-                </div>
-                <div class="story-title">
-                    <a [href]="item.url" target="_blank" [innerHTML]="item.title" rel="noopener"></a>
-                </div>
-                <div class="domain">
-                    <p [innerHTML]="item.domain"></p>
-                </div>
-                <div class="description level">
-                    <div class="level-left">
-                        <span *ngIf="item.user">{{item.points ? item.points : '0'}} &#9733; by</span>
-                        <span class="user-name" [innerHTML]="item.user" tabindex="0" (click)="navigate('user', item.user)" *ngIf="item.user"> </span>
-                    </div>
-                    <div class="level-right">
-                        <span class="time" [innerHTML]="item.time_ago"></span> |
-                        <span class="comments" [innerHTML]="item.comments_count + ' comments'" (click)="navigate('comments', item.id)" tabindex="0"></span>
-                    </div>
-                </div>
-            </article>
+<div class="left-button buttons" *ngIf="currentPageNumber - 1 > 0" (click)="navigate('left')" tabindex="0"> &#10095; </div>
+<div class="right-button buttons" *ngIf="pageData.length === 30" (click)="navigate('right')" tabindex="0"> &#10095; </div>
+<div class="container">
+    <div class="item clearfix" *ngFor="let item of pageData; let i = index">
+        <div class="count">
+            {{i+count}}
+        </div>
+        <div class="story-title">
+            <a [href]="item.url" target="_blank" [innerHTML]="item.title" rel="noopener"></a>
+        </div>
+        <div class="domain">
+            <p class="truncate" [innerHTML]="item.domain"></p>
+        </div>
+        <div class="description">
+            <div class="left-content">
+                <span *ngIf="item.user">{{item.points ? item.points : '0'}} &#9733; by</span>
+                <span class="user-name" [innerHTML]="item.user" tabindex="0" (click)="navigate('user', item.user)" *ngIf="item.user"> </span> {{ item.user ? ' | ' : ''}}
+                <span [innerHTML]="item.time_ago"></span>
+            </div>
+            <div class="right-content">
+                <span [innerHTML]="item.comments_count + ' comments'" (click)="navigate('comments', item.id)" tabindex="0"></span>
+            </div>
         </div>
     </div>
 </div>

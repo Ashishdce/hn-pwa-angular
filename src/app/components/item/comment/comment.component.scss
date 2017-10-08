@@ -1,4 +1,6 @@
 .comment {
+    overflow: hidden;
+    word-break: break-word;
     p:nth-child(1) {
         width: 100%;
         margin-bottom: 5px;
@@ -24,21 +26,21 @@
         .toggle {
             background: #fff;
             top: -9px;
-            left: 20px;
+            left: 11px;
             position: absolute;
             cursor: pointer;
             span {
                 position: absolute;
-                width: 29px;
-                height: 29px;
+                width: 20px;
+                height: 20px;
                 background: #00d1b2;
                 border-radius: 50%;
                 color: #fff;
                 text-align: center;
-                font-size: 20px;
+                font-size: 13px;
                 padding-top: 4px;
-                top: -6px;
-                left: -20px;
+                top: -3px;
+                left: -12px;
                 padding-left: 1px;
                 -webkit-transform: rotate(90deg);
                 transform: rotate(90deg);

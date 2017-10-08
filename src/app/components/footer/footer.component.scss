@@ -1,0 +1,25 @@
+$primary-color: #00d1b2;
+.footer {
+    background: hsl(0, 0%, 96%);
+    padding: 40px 0 80px;
+    text-align: center;
+    .content {
+        p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.42);
+            strong {
+                font-weight: 600;
+            }
+        }
+        a {
+            text-decoration: none;
+            font-size: 16px;
+            color: $primary-color;
+            transition: all 0.15s ease-in-out;
+            &:hover {
+                font-weight: 600;
+            }
+        }
+    }
+}

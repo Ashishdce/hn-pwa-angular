@@ -1,39 +1,33 @@
-import { Component, HostListener } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Renderer2 } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  // @HostListener("window:offline", [])
-  // onWindowOffline() {
-  //  console.log('offline', window.navigator.onLine);
-  //  this.greyOut = window.navigator.onLine;
-  //  this.showAlert = true;
-  //  setTimeout(() => {
-  //    this.showAlert = false;
-  //   }, 5000);
-  // }
-  // @HostListener("window:online", [])
-  // onWindowonline() {
-  // this.greyOut = window.navigator.onLine;
-  //  console.log('online', window.navigator.onLine);
-  //  this.showAlert = false;
-  // }
+export class AppComponent implements OnInit {
+  public greyOut = false;
+  public showAlert = false;
+  constructor(private renderer: Renderer2) {}
 
-  constructor(private router: Router) {}
-  showAlert = false;
-  greyOut = true;
-  // greyOut = window.navigator.onLine;
-  title = 'app';
-  // ngOnInit() {
-  //   this.router.events.subscribe((evt) => {
-  //     if (!(evt instanceof NavigationEnd)) {
-  //         return;
-  //     }
-  //     window.scrollTo(0, 0);
-  //   });
-  // }
+  ngOnInit() {
+    this.renderer.listen('window', 'offline', (e) => {
+      console.log('offline');
+      this.greyOut = true;
+      this.showAlert = true;
+      console.log(e);
+      e['path'][0].setTimeout(() => {
+        this.showAlert = false;
+      }, 5000);
+    });
+    this.renderer.listen('window', 'online', (e) => {
+      console.log('online');
+      this.greyOut = false;
+      this.showAlert = true;
+      e['path'][0].setTimeout(() => {
+        this.showAlert = false;
+      }, 5000);
+    });
+  }
 }
 

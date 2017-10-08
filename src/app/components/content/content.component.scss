@@ -1,33 +1,101 @@
-article.tile.is-child.notification {
-    position: relative;
-    margin-bottom: 1rem !important;
-    .story-title {
-        a {
-            text-decoration: none;
+$primary-color: #00d1b2;
+.container {
+    padding: 0 15px;
+    margin-top: 30px;
+    .item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        position: relative;
+        border-bottom: 1px solid rgba(31, 28, 28, 0.23);
+        &:last-of-type {
+            border-bottom: none;
         }
-        margin-bottom: 2px;
-    }
-    .domain {
-        font-size: 12px;
-        margin-bottom: 12px;
-    }
-    .description {
-        font-size: 13px;
-        .user-name,
-        .comments {
-            text-decoration: underline;
-            cursor: pointer;
+        .count {
+            width: 100px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .story-title {
+            a {
+                text-decoration: none;
+                font-size: 15px;
+                line-height: 1.25;
+                color: $primary-color;
+            }
+        }
+        .domain {
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        .description {
+            margin-top: 10px;
+            font-size: 12px;
+            .left-content {
+                float: left;
+                .user-name {
+                    font-weight: 600;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .right-content {
+                float: right;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
-    .count {
-        position: absolute;
-        bottom: 11px;
-        right: 12px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        text-align: center;
-        padding-top: 9px;
-        font-size: 12px;
+}
+
+.buttons {
+    width: 60px;
+    height: 75px;
+    position: fixed;
+    top: 50%;
+    background: $primary-color;
+    color: #fff;
+    z-index: 45;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    font-size: 35px;
+    padding-top: 19px;
+    padding-left: 13px;
+    opacity: 0.35;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.left-button {
+    left: 0;
+    transform: translate(-35%, -50%) rotate(180deg);
+}
+
+.right-button {
+    right: 0;
+    transform: translate(35%, -50%);
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        .item {
+            .story-title {
+                a {
+                    font-size: 18px;
+                }
+            }
+        }
     }
 }

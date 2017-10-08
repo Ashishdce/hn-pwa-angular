@@ -1,11 +1,11 @@
-import { Subject } from 'rxjs/Rx';
+import { Subject, BehaviorSubject } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CommonService {
   public $loader = new Subject<boolean>();
-  public $pageDetails = new Subject<Object>();
-  public $totalCount = new Subject<number>();
+  public $pageDetails = new BehaviorSubject <Object>({});
+  public $totalCount = new BehaviorSubject <number>(1);
   public routeToNames = {
     'newest': 'Top Stories',
     'news': 'News',
@@ -18,10 +18,10 @@ export class CommonService {
   setLoader(val: boolean) {
       this.$loader.next(val);
   }
-  setPageName(name: string, pageNumber?) {
+  setPageDetails(name: string, id: string) {
     const obj = {
       name: this.routeToNames[name],
-      pageNumber: pageNumber,
+      id: /^\d+$/.test(id) && name !== 'item' ? parseInt(id) : null,
       type: name
     };
     this.$pageDetails.next(obj);

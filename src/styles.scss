@@ -1,24 +1,9 @@
-@import '../node_modules/bulma/sass/utilities/_all.sass';
-@import '../node_modules/bulma/sass/base/_all.sass';
-@import '../node_modules/bulma/sass/components/dropdown.sass';
-@import '../node_modules/bulma/sass/components/level.sass';
-@import '../node_modules/bulma/sass/components/modal.sass';
-@import '../node_modules/bulma/sass/components/nav.sass';
-@import '../node_modules/bulma/sass/components/navbar.sass';
-@import '../node_modules/bulma/sass/components/pagination.sass';
-@import '../node_modules/bulma/sass/elements/_all.sass';
-@import '../node_modules/bulma/sass/grid/_all.sass';
-@import '../node_modules/bulma/sass/layout/_all.sass';
-
 /* You can add global styles to this file, and also import other style files */
 
 html,
 body,
 div,
 span,
-applet,
-object,
-iframe,
 h1,
 h2,
 h3,
@@ -26,72 +11,20 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-pre,
 a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
 img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
 strong,
-sub,
-sup,
-tt,
-var,
 b,
 u,
 i,
-center,
-dl,
-dt,
-dd,
-ol,
 ul,
 li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
 article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
 footer,
 header,
-hgroup,
 menu,
 nav,
-output,
-ruby,
 section,
-summary,
-time,
-mark,
-audio,
 video {
     margin: 0;
     padding: 0;
@@ -105,13 +38,8 @@ video {
 /* HTML5 display-role reset for older browsers */
 
 article,
-aside,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
 menu,
 nav,
 section {
@@ -120,29 +48,12 @@ section {
 
 body {
     line-height: 1;
+    -webkit-font-smoothing: antialiased;
 }
 
 ol,
 ul {
     list-style: none;
-}
-
-blockquote,
-q {
-    quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
 * {
@@ -156,8 +67,39 @@ body {
 }
 
 // common classes
+.container {
+    @media screen and (min-width: 768px) {
+        width: 90%;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: 992px) {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 .padding {
-    padding: 15px;
+    padding: 0 15px;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button {
+    background: none;
+    border: 1px solid #00d1b2;
+    border-radius: 5px;
+    color: #00d1b2;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+        background: #00d1b2;
+        color: #fff;
+    }
 }
 
 .clearfix:after {

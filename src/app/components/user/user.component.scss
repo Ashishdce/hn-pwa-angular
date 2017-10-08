@@ -1,6 +1,29 @@
-.inner-tile {
-    overflow: hidden;
-    p {
-        word-wrap: break-word;
+$primary-color: #00d1b2;
+.container {
+    padding: 15px;
+    .user-info {
+        margin-bottom: 20px;
+        h2 {
+            max-width: 70%;
+            color: $primary-color;
+            font-size: 24px;
+            float: left;
+        }
+        p {
+            float: right;
+            padding-top: 6px;
+            color: #858585;
+        }
+    }
+    .other-info {
+        p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #858585;
+        }
+        p:first-of-type {
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+        }
     }
 }

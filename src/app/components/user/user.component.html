@@ -1,18 +1,11 @@
-<div class="section">
-    <div class="container">
-        <div class="tile is-ancestor">
-            <div class="tile box notification is-primary is-parent">
-                <div class="content is-medium">
-                    <h2 class="title" [innerHTML]="userData.id ? userData.id : ''"></h2>
-                    <p class="karma" [innerHTML]="userData.karma ? userData.karma +' &#9733;': '0 &#9733;'"></p>
-                    <div class="inner-tile tile box notification is-warning is-child">
-                        <p class="creation" [innerHTML]="userData.created ? 'Created ' + userData.created : 'Cant say when this user was created..'"></p>
-                        <p class="subtitle">About <span>{{userData.id}}...</span></p>
-                        <p class="about" [innerHTML]="userData.about ? userData.about: 'Nothing to display about this user...'"></p>
-                    </div>
-                    {{data | json}}
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <div class="user-info clearfix">
+        <h2 class="title truncate" [innerHTML]="userData.id ? userData.id : ''"></h2>
+        <p class="karma" [innerHTML]="userData.karma ? userData.karma +' &#9733;': '0 &#9733;'"></p>
+    </div>
+    <div class="other-info">
+        <p class="creation truncate" [innerHTML]="userData.created ? 'Created ' + userData.created : 'Cant say when this user was created..'"></p>
+        <p class="subtitle truncate">About <span>{{userData.id}}...</span></p>
+        <p class="about" [innerHTML]="userData.about ? userData.about: 'Nothing to display about this user...'"></p>
     </div>
 </div>

@@ -1,54 +1,36 @@
-<header class="hero is-primary">
-    <button class="toggle-button button is-inverted is-outlined is-hidden-tablet" aria-haspopup="true" aria-controls="dropdown-menu" (click)="toggleMenu()" tabindex="0">&#9776;</button>
-    <div class="modal-background" *ngIf="showMenu" (click)="showMenu = false"></div>
-    <div class="dropdown" [ngClass]="{'is-active': showMenu}">
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-                <a routerLink="/newest" routerLinkActive="is-active" class="dropdown-item" (click)="showMenu = false">Top</a>
-                <a routerLink="/news" routerLinkActive="is-active" class="dropdown-item" (click)="showMenu = false">New</a>
-                <a routerLink="/show" routerLinkActive="is-active" class="dropdown-item" (click)="showMenu = false">Show</a>
-                <a routerLink="/ask" routerLinkActive="is-active" class="dropdown-item" (click)="showMenu = false">Asks</a>
-                <a routerLink="/jobs" routerLinkActive="is-active" class="dropdown-item" (click)="showMenu = false">Jobs</a>
-            </div>
+<header class="header">
+    <div class="container">
+        <div class="image" (click)="navigate('image-click')"> ​
+            <picture>
+                <source srcset="../../../assets/logo-webp.webp" type="image/webp">
+                <img src="../../../assets/logo.png" alt="logo">
+            </picture>
+        </div>
+        <div class="heading">
+            <p class="truncate">HackerNews</p>
+            <p class="truncate">powered by <span>Angular</span></p>
         </div>
     </div>
-    <nav class="hero-body">
-        <div class="container">
-            <div class="heading">
-                <p><span class="title">HackerNews</span></p>
-                <p class="subtitle">powered by <span>Angular</span></p>
-            </div>
-        </div>
-    </nav>
 </header>
-<div class="navbar has-shadow is-hidden-mobile" *ngIf="showIndexing">
+<nav [ngClass]="{'navigation': true, 'fix-header': fixHeader}">
     <div class="container">
-        <div class="navbar-tabs">
-            <a routerLink="/newest" routerLinkActive="is-active" class="navbar-item is-tab">Top</a>
-            <a routerLink="/news" routerLinkActive="is-active" class="navbar-item is-tab">New</a>
-            <a routerLink="/show" routerLinkActive="is-active" class="navbar-item is-tab">Show</a>
-            <a routerLink="/ask" routerLinkActive="is-active" class="navbar-item is-tab">Asks</a>
-            <a routerLink="/jobs" routerLinkActive="is-active" class="navbar-item is-tab">Jobs</a>
+        <button class="button menu-button" aria-haspopup="true" aria-controls="dropdown-menu" (click)="toggleMenu()" tabindex="0">&#9776;</button>
+        <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" role="menu">
+            <a routerLink="/newest" routerLinkActive="active" (click)="showMenu = false">Top</a>
+            <a routerLink="/news" routerLinkActive="active" (click)="showMenu = false">New</a>
+            <a routerLink="/show" routerLinkActive="active" (click)="showMenu = false">Show</a>
+            <a routerLink="/ask" routerLinkActive="active" (click)="showMenu = false">Asks</a>
+            <a routerLink="/jobs" routerLinkActive="active" (click)="showMenu = false">Jobs</a>
         </div>
+        <div class="page-name">
+            <p class="truncate" [innerHTML]="pageName"></p>
+        </div>
+        <div class="index" *ngIf="showIndexing">
+            {{curPageNumber}}
+        </div>
+        <button class="button back-button" (click)="navigate('back')" *ngIf="!showIndexing">Back</button>
     </div>
-</div>
-<div class="page-type is-hidden-tablet">
-    <p class="heading" [innerHTML]="pageName"></p>
-</div>
-<div class="pagination-section" *ngIf="showIndexing">
-    <div class="container">
-        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-            <button class="is-hidden-tablet pagination-previous button  is-primary is-outlined" [disabled]="prevPageNumber < 1" (click)="navigate('prev')">Previous</button>
-            <button class="is-hidden-mobile button  is-primary is-outlined" [disabled]="prevPageNumber < 1" (click)="navigate('prev')">Previous</button>
-            <a class="pagination-link is-current" aria-current="page" [innerHTML]="curPageNumber"></a>
-            <button class="pagination-next button  is-primary is-outlined" (click)="navigate('next')" [disabled]="count < 30">Next</button>
-        </nav>
-    </div>
-</div>
-<div class="pagination-section back-section" *ngIf="!showIndexing">
-    <div class="container">
-        <nav class="pagination is-centered" role="navigation" aria-label="back">
-            <button class="pagination-previous button  is-primary is-outlined" (click)="navigate('back')">Back</button>
-        </nav>
-    </div>
-</div>
+    <div class="modal-background" *ngIf="showMenu" (click)="showMenu = false"></div>
+</nav>
+<div class="divider" *ngIf="fixHeader"></div>
+<button [ngClass]="{'scroll-button': true, 'show-scroll': showScrollButton}" type="button" (click)="scrollUp()">&#10095;</button>

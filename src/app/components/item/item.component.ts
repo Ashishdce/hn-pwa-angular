@@ -10,10 +10,7 @@ export class ItemComponent implements OnInit {
   commentData: any;
   showMore = false;
   constructor(private route: ActivatedRoute) { }
-
   ngOnInit() {
-    this.commentData = this.route.snapshot.data['content'][0];
-    console.log(this.commentData);
+    this.commentData = this.route.snapshot.data['content'];
   }
-
 }
