@@ -1,112 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/sass/variables";
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
 
-html,
-body,
-div,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-img,
-strong,
-b,
-u,
-i,
-ul,
-li,
-article,
-footer,
-header,
-menu,
-nav,
-section,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
+// All overrides go here
+// http://bulma.io/documentation/overview/variables/
 
+$radius-small: 0;
+$radius: 0;
+$radius-large: 0;
 
-/* HTML5 display-role reset for older browsers */
+$primary: $primary-color;
 
-article,
-footer,
-header,
-menu,
-nav,
-section {
-    display: block;
-}
+// All base css requirements from bulma
+@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/base/_all";
+@import "~bulma/sass/grid/columns";
 
-body {
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
+// Elements imports - import only what is needed
+@import "~bulma/sass/elements/box.sass";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/content.sass";
+@import "~bulma/sass/elements/form.sass";
+@import "~bulma/sass/elements/icon.sass";
+@import "~bulma/sass/elements/image.sass";
+@import "~bulma/sass/elements/notification.sass";
+@import "~bulma/sass/elements/progress.sass";
+@import "~bulma/sass/elements/table.sass";
+@import "~bulma/sass/elements/tag.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/elements/other.sass";
 
-ol,
-ul {
-    list-style: none;
-}
-
-* {
-    box-sizing: border-box;
-    outline: none;
-}
-
-body {
-    font-family: sans-serif;
-    // padding-top: 83px;
-}
-
-// common classes
-.container {
-    @media screen and (min-width: 768px) {
-        width: 90%;
-        margin: 0 auto;
-    }
-    @media screen and (min-width: 992px) {
-        width: 80%;
-        margin: 0 auto;
-    }
-}
-
-.padding {
-    padding: 0 15px;
-}
-
-.truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.button {
-    background: none;
-    border: 1px solid #00d1b2;
-    border-radius: 5px;
-    color: #00d1b2;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.15s ease-in-out;
-    &:hover {
-        background: #00d1b2;
-        color: #fff;
-    }
-}
-
-.clearfix:after {
-    content: " ";
-    /* Older browser do not support empty content */
-    visibility: hidden;
-    display: block;
-    height: 0;
-    clear: both;
-}
+// Component imports - import only what is needed
+@import "~bulma/sass/components/breadcrumb.sass";
+@import "~bulma/sass/components/card.sass";
+@import "~bulma/sass/components/dropdown.sass";
+@import "~bulma/sass/components/level.sass";
+@import "~bulma/sass/components/media.sass";
+@import "~bulma/sass/components/menu.sass";
+@import "~bulma/sass/components/message.sass";
+@import "~bulma/sass/components/modal.sass";
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/pagination.sass";
+@import "~bulma/sass/components/panel.sass";
+@import "~bulma/sass/components/tabs.sass";

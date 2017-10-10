@@ -1,4 +1,4 @@
-<header class="header">
+<!-- <header class="header">
     <div class="container">
         <div class="image" (click)="navigate('image-click')"> ​
             <picture>
@@ -33,4 +33,53 @@
     <div class="modal-background" *ngIf="showMenu" (click)="showMenu = false"></div>
 </nav>
 <div class="divider" *ngIf="fixHeader"></div>
-<button [ngClass]="{'scroll-button': true, 'show-scroll': showScrollButton}" type="button" (click)="scrollUp()">&#10095;</button>
+<button [ngClass]="{'scroll-button': true, 'show-scroll': showScrollButton}" type="button" (click)="scrollUp()">&#10095;</button> -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://bulma.io">
+                <img src="../../../assets/anonymous.svg" alt="HackerNews" height="64">
+            </a>
+            <div class="navbar-item is-paddingless">
+                <p class="header is-size-5">Hacker News <span class="header is-size-7 is-hidden-mobile">Powered by Angular</span></p>
+            </div>
+            <button class="button is-primary navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="navbar has-shadow">
+<div class="container">
+        <div class="navbar-tabs is-primary">
+        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/container/">
+            Container
+        </a>
+        <a class="navbar-item is-tab is-active" href="http://bulma.io/documentation/layout/level/">
+            Level
+        </a>
+        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/media-object/">
+            Media Object
+        </a>
+        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/hero/">
+            Hero
+        </a>
+        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/section/">
+            Section
+        </a>
+        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/footer/">
+            Footer
+        </a>
+        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/tiles/">
+            Tiles
+        </a>
+        </div>
+    </div>
+</nav>
