@@ -7,6 +7,10 @@ import { DataResolver } from './services';
 const routes: Routes = [
     {
         path: 'newest',
+        data: {
+            name: 'Newest',
+            priority: 2
+        },
         children: [{
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
@@ -25,6 +29,10 @@ const routes: Routes = [
     },
     {
         path: 'news',
+        data: {
+            name: 'News',
+            priority: 1
+        },
         children: [{
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
@@ -43,6 +51,10 @@ const routes: Routes = [
     },
     {
         path: 'show',
+        data: {
+            name: 'Show',
+            priority: 3
+        },
         children: [{
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
@@ -61,6 +73,10 @@ const routes: Routes = [
     },
     {
         path: 'ask',
+        data: {
+            name: 'Asks',
+            priority: 4
+        },
         children: [{
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',
@@ -79,6 +95,10 @@ const routes: Routes = [
     },
     {
         path: 'jobs',
+        data: {
+            name: 'Jobs',
+            priority: 5
+        },
         children: [{
             path: ':id',
             loadChildren: 'app/components/content/content.module#ContentModule',

@@ -34,52 +34,43 @@
 </nav>
 <div class="divider" *ngIf="fixHeader"></div>
 <button [ngClass]="{'scroll-button': true, 'show-scroll': showScrollButton}" type="button" (click)="scrollUp()">&#10095;</button> -->
-<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="http://bulma.io">
-                <img src="../../../assets/anonymous.svg" alt="HackerNews" height="64">
-            </a>
-            <div class="navbar-item is-paddingless">
-                <p class="header is-size-5">Hacker News <span class="header is-size-7 is-hidden-mobile">Powered by Angular</span></p>
+<header class="is-fixed">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="http://bulma.io">
+                    <img src="../../../assets/anonymous.svg" alt="HackerNews" height="64">
+                </a>
+                <div class="navbar-item is-paddingless">
+                    <p class="header is-size-5">Hacker News <span class="header is-size-7 is-hidden-mobile">Powered by Angular</span></p>
+                </div>
+                <button class="button is-primary navbar-burger" [ngClass]="{'is-active': showMenu}" (click)="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <button class="button is-primary navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-start">
-                
+            <div class="navbar-menu is-hidden-desktop" [ngClass]="{'is-active': showMenu}">
+                <div class="navbar-start">
+                    <ng-container *ngFor="let navRoute of navRoutes">
+                        <a class="navbar-item" [routerLink]="[navRoute.path]" [routerLinkActive]="'is-active'">
+                            {{navRoute.data.name}}
+                        </a>
+                    </ng-container>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-<nav class="navbar has-shadow">
-<div class="container">
-        <div class="navbar-tabs is-primary">
-        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/container/">
-            Container
-        </a>
-        <a class="navbar-item is-tab is-active" href="http://bulma.io/documentation/layout/level/">
-            Level
-        </a>
-        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/media-object/">
-            Media Object
-        </a>
-        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/hero/">
-            Hero
-        </a>
-        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/section/">
-            Section
-        </a>
-        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/footer/">
-            Footer
-        </a>
-        <a class="navbar-item is-tab " href="http://bulma.io/documentation/layout/tiles/">
-            Tiles
-        </a>
+    </nav>
+    <nav class="navbar has-shadow is-hidden-touch">
+        <div class="container">
+            <div class="navbar-tabs">
+            <ng-container *ngFor="let navRoute of navRoutes">
+                <a class="navbar-item is-tab " [routerLink]="[navRoute.path]" [routerLinkActive]="'is-active'">
+                    {{navRoute.data.name}}
+                </a>
+            </ng-container>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
+<div class="navbar-shadow is-hidden-desktop" [ngClass]="{'is-active': showMenu}" (click)="toggleMenu()"></div>

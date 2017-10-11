@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   pageName = 'Top Stories';
   curPageNumber = 1;
   currentEvent;
+  navRoutes: any[];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit {
     private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.navRoutes = this.router.config.filter(c => c.data).sort(this.sortPriority);
     this.renderer.listen('window', 'scroll', (e) => {
       const yScroll = e['path'][1]['scrollY'];
       this.currentEvent = e;
@@ -57,6 +59,15 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+  }
+  sortPriority(a, b) {
+    if (a.data.priority < b.data.priority) {
+      return -1;
+    }
+    if (a.data.priority > b.data.priority) {
+      return 1;
+    }
+    return 0;
   }
   toggleMenu() {
     this.showMenu = !this.showMenu;

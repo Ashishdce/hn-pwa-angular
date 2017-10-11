@@ -1,13 +1,11 @@
-<div [ngClass]="{'grey-out': greyOut}">
+<div [ngClass]="{'offline': offline}">
     <app-header></app-header>
-    <div class="wrapper">
+    <div class="wrapper hero is-light">
         <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
     <app-loader></app-loader>
 </div>
-<div class="alert" [ngClass]="{'alert': true, 'show-alert': showAlert}">
-    <p [innerHTML]="greyOut ? 'No Internet Connection.' : 'You are online.'"></p>
-</div>
-
-<a class="button is-primary">Info</a>
+<article class="offline-message notification is-danger" [ngClass]="{'is-active': offline}">
+    No Internet Connection.
+</article>

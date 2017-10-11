@@ -11,37 +11,42 @@ $radius: 0;
 $radius-large: 0;
 
 $primary: $primary-color;
+$grey-dark: $primary-text-color;
+$navbar-tab-active-color: $primary;
+$navbar-tab-hover-border-bottom-color: $primary;
+$navbar-tab-active-border-bottom-color: $primary;
 
 // All base css requirements from bulma
 @import "~bulma/sass/utilities/_all";
 @import "~bulma/sass/base/_all";
-@import "~bulma/sass/grid/columns";
+// @import "~bulma/sass/grid/columns";
+@import "~bulma/sass/layout/_all";
 
 // Elements imports - import only what is needed
 @import "~bulma/sass/elements/box.sass";
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/elements/content.sass";
-@import "~bulma/sass/elements/form.sass";
-@import "~bulma/sass/elements/icon.sass";
-@import "~bulma/sass/elements/image.sass";
+// @import "~bulma/sass/elements/form.sass";
+// @import "~bulma/sass/elements/icon.sass";
+// @import "~bulma/sass/elements/image.sass";
 @import "~bulma/sass/elements/notification.sass";
-@import "~bulma/sass/elements/progress.sass";
-@import "~bulma/sass/elements/table.sass";
-@import "~bulma/sass/elements/tag.sass";
+// @import "~bulma/sass/elements/progress.sass";
+// @import "~bulma/sass/elements/table.sass";
+// @import "~bulma/sass/elements/tag.sass";
 @import "~bulma/sass/elements/title.sass";
 @import "~bulma/sass/elements/other.sass";
 
 // Component imports - import only what is needed
-@import "~bulma/sass/components/breadcrumb.sass";
-@import "~bulma/sass/components/card.sass";
-@import "~bulma/sass/components/dropdown.sass";
+// @import "~bulma/sass/components/breadcrumb.sass";
+// @import "~bulma/sass/components/card.sass";
+// @import "~bulma/sass/components/dropdown.sass";
 @import "~bulma/sass/components/level.sass";
 @import "~bulma/sass/components/media.sass";
-@import "~bulma/sass/components/menu.sass";
-@import "~bulma/sass/components/message.sass";
-@import "~bulma/sass/components/modal.sass";
+// @import "~bulma/sass/components/menu.sass";
+// @import "~bulma/sass/components/message.sass";
+// @import "~bulma/sass/components/modal.sass";
 @import "~bulma/sass/components/navbar.sass";
 @import "~bulma/sass/components/pagination.sass";
 @import "~bulma/sass/components/panel.sass";
-@import "~bulma/sass/components/tabs.sass";
+// @import "~bulma/sass/components/tabs.sass";

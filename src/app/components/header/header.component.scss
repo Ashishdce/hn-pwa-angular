@@ -183,3 +183,31 @@
 //         }
 //     }
 // }
+
+.is-fixed{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.navbar-menu{
+    position: relative;
+    z-index: 9999;
+}
+.navbar-shadow{
+    position: fixed;
+    width: 100%;
+    top: 3.25rem;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 9998;
+    display: none;
+
+    &.is-active{
+        display: block; 
+    }
+}
