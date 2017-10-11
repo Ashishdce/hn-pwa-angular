@@ -3,6 +3,7 @@
 
 <section class="section">
   <div class="container">
+    <h2 class="subtitle is-hidden-desktop">User</h2>
     <section class="panel">
       <ng-template ngFor let-item [ngForOf]="pageData" let-i="index">
         <div class="panel-block">
@@ -22,7 +23,7 @@
                 <p class="meta is-size-7">
                   <span *ngIf="item.user">by <a tabindex="0" [routerLink]="['/user', item.user]">{{item.user}}</a></span>
                   <span>{{item.time_ago}}</span> |
-                  <span><a tabindex="0" [routerLink]="['/comments', item.id]" [title]="item.comments_count + ' comments'">{{item.comments_count}} comments</a></span>
+                  <span><a tabindex="0" [routerLink]="['/item', item.id]" [title]="item.comments_count + ' comments'">{{item.comments_count}} comments</a></span>
                 </p>
               </div>
             </div>

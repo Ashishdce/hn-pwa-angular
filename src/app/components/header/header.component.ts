@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -27,10 +28,21 @@ export class HeaderComponent implements OnInit {
     private route: ActivatedRoute,
     private service: CommonService,
     private location: Location,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2) {
+      router.events.subscribe(event => {
+        if (event instanceof  NavigationEnd) {
+          this.showMenu = false;
+          if (window) {
+            window.scrollTo(0, 0);
+          }
+        }
+      });
+     }
 
   ngOnInit() {
+
     this.navRoutes = this.router.config.filter(c => c.data).sort(this.sortPriority);
+
     this.renderer.listen('window', 'scroll', (e) => {
       const yScroll = e['path'][1]['scrollY'];
       this.currentEvent = e;
