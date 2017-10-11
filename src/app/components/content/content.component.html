@@ -3,7 +3,6 @@
 
 <section class="section">
   <div class="container">
-    <h2 class="subtitle is-hidden-desktop">User</h2>
     <section class="panel">
       <ng-template ngFor let-item [ngForOf]="pageData" let-i="index">
         <div class="panel-block">
@@ -30,6 +29,7 @@
           </div>
         </div>
       </ng-template>
+      <app-no-data *ngIf="!pageData.length"></app-no-data>
     </section>
   </div>
 </section>

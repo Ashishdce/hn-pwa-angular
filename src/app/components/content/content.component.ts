@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  pageData: Array<Object>;
+  pageData: Array<Object> = [];
   currentPageNumber: number;
   count: number;
   pageType;
@@ -17,7 +17,7 @@ export class ContentComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       if (data) {
-        this.pageData = data['content'];
+        this.pageData = data['content'] || [];
         this.service.$totalCount.next(this.pageData.length);
       }
     });

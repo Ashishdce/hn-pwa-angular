@@ -1,3 +1,4 @@
+import { NoDataModule } from './components/no-data/no-data.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +32,8 @@ import { Services } from './services';
     // UserModule,
     ItemModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    NoDataModule
   ],
   providers: [Services],
   bootstrap: [AppComponent]

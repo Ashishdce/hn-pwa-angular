@@ -9,6 +9,7 @@ const routes: Routes = [
         path: 'newest',
         data: {
             name: 'Newest',
+            nav: true,
             priority: 2
         },
         children: [{
@@ -31,6 +32,7 @@ const routes: Routes = [
         path: 'news',
         data: {
             name: 'News',
+            nav: true,
             priority: 1
         },
         children: [{
@@ -53,6 +55,7 @@ const routes: Routes = [
         path: 'show',
         data: {
             name: 'Show',
+            nav: true,
             priority: 3
         },
         children: [{
@@ -75,6 +78,7 @@ const routes: Routes = [
         path: 'ask',
         data: {
             name: 'Asks',
+            nav: true,
             priority: 4
         },
         children: [{
@@ -97,6 +101,7 @@ const routes: Routes = [
         path: 'jobs',
         data: {
             name: 'Jobs',
+            nav: true,
             priority: 5
         },
         children: [{
@@ -117,6 +122,10 @@ const routes: Routes = [
     },
     {
         path: 'user',
+        data: {
+            name: 'User',
+            nav: false
+        },
         children: [{
             path: ':id',
             // loadChildren: 'app/components/user/user.module#UserModule',
@@ -136,6 +145,10 @@ const routes: Routes = [
     },
     {
         path: 'item',
+        data: {
+            name: 'Comments',
+            nav: false
+        },
         children: [{
             path: ':id',
             loadChildren: 'app/components/item/item.module#ItemModule',

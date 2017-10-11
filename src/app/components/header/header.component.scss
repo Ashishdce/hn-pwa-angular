@@ -1,3 +1,4 @@
+@import "../../../assets/sass/variables";
 .is-fixed{
     position: fixed;
     width: 100%;
@@ -5,10 +6,23 @@
     left: 0;
     z-index: 99999;
 }
+.navbar-item .tags {
+    .tag {
+        background: #FFFFFF;
+        color: $primary-text-color;
 
+        &.is-dark{
+            background: darken($primary-color, 10%);
+            color: #FFFFFF;
+        }
+    }
+}
 .navbar-menu{
     position: relative;
     z-index: 9999;
+}
+.spacer{
+    flex: 1;
 }
 .navbar-shadow{
     position: fixed;
@@ -24,5 +38,44 @@
 
     &.is-active{
         display: block; 
+    }
+}
+
+.is-scroll-btn{
+    position: fixed;
+    z-index: 99998;
+    bottom: 24px;
+    right: 24px;
+    border-radius: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: all 0.3s 0s ease-in-out;
+    font-size: 1rem;
+    outline: 0;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    line-height: 54px;
+    padding: 0;
+    vertical-align: middle;
+    background: $primary-color;
+    border: none;
+    color: #FFFFFF;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
+    &:hover{
+        -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    }
+
+    &.is-active{
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1); 
     }
 }

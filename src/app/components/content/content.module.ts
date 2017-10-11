@@ -1,3 +1,4 @@
+import { NoDataModule } from '../no-data/no-data.module';
 import { CommonModule } from '@angular/common';
 import { ContentChild, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -9,6 +10,7 @@ import { ContentComponent } from './content.component';
   ],
   imports: [
     CommonModule,
+    NoDataModule,
     RouterModule.forChild([
         {
           path: '',
