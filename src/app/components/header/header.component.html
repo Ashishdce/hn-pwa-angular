@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div class="navbar-item is-hidden-desktop">
-                    <div class="tags has-addons">
+                    <div class="tags has-addons" *ngIf="curPageNumber">
                         <span class="tag">Page</span>
                         <span class="tag is-dark">{{curPageNumber}}</span>
                     </div>
@@ -46,7 +46,7 @@
             <div class="spacer"></div>
             <div class="level">
                 <div class="level-item">
-                    <div class="tags has-addons">
+                    <div class="tags has-addons" *ngIf="curPageNumber">
                         <span class="tag">Page</span>
                         <span class="tag is-primary">{{curPageNumber}}</span>
                     </div>
