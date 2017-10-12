@@ -1,3 +1,4 @@
+@import "../../../assets/sass/variables";
 .spinner {
     position: fixed;
     z-index: 9998;
@@ -15,7 +16,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         div {
-            background-color: #00d1b2;
+            background-color: $primary-color;
             height: 100%;
             width: 6px;
             display: inline-block;

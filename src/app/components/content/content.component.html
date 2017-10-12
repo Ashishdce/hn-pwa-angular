@@ -1,25 +1,35 @@
-<div class="left-button buttons" *ngIf="currentPageNumber - 1 > 0" (click)="navigate('left')" tabindex="0"> &#10095; </div>
-<div class="right-button buttons" *ngIf="pageData.length === 30" (click)="navigate('right')" tabindex="0"> &#10095; </div>
-<div class="container" id="content">
-    <div class="item clearfix" *ngFor="let item of pageData; let i = index">
-        <div class="count">
-            {{i+count}}
-        </div>
-        <div class="story-title">
-            <a [href]="item.url" target="_blank" [innerHTML]="item.title" rel="noopener"></a>
-        </div>
-        <div class="domain">
-            <p class="truncate" [innerHTML]="item.domain"></p>
-        </div>
-        <div class="description">
-            <div class="left-content">
-                <span *ngIf="item.user">{{item.points ? item.points : '0'}} &#9733; by</span>
-                <span class="user-name" [innerHTML]="item.user" tabindex="0" (click)="navigate('user', item.user)" *ngIf="item.user"> </span> {{ item.user ? ' | ' : ''}}
-                <span [innerHTML]="item.time_ago"></span>
-            </div>
-            <div class="right-content">
-                <span [innerHTML]="item.comments_count + ' comments'" (click)="navigate('comments', item.id)" tabindex="0"></span>
-            </div>
-        </div>
+<a class="pager is-left" *ngIf="currentPageNumber - 1 > 0" (click)="navigate('left')" tabindex="0" title="Previous"> <span>&#10094;</span> </a>
+<a class="pager is-right" *ngIf="pageData.length === 30" (click)="navigate('right')" tabindex="0" title="Next"> <span>&#10095;</span> </a>
+
+<section class="section">
+    <div class="container">
+        <section class="panel">
+            <ng-template ngFor let-item [ngForOf]="pageData" let-i="index">
+                <div class="panel-block">
+                    <div class="level is-mobile">
+                        <div class="level-item has-text-centered is-marginless">
+                            <div class="count">
+                                <p class="title is-5">{{item.points ? item.points : 0}}</p>
+                                <p class="heading is-marginless">point{{item.points !== 1 ? 's': ''}}</p>
+                            </div>
+                        </div>
+                        <div class="level-item  has-text-left is-marginless">
+                            <div class="content">
+                                <a tabindex="0" class="is-size-6 is-marginless" [href]="item.url" target="_blank" rel="noopener">
+                    {{item.title}}
+                </a>
+                                <small class="meta is-size-7" *ngIf="item.domain">({{item.domain}})</small>
+                                <p class="meta is-size-7">
+                                    <span *ngIf="item.user">by <a tabindex="0" [routerLink]="['/user', item.user]">{{item.user}}</a></span>
+                                    <span>{{item.time_ago}}</span> |
+                                    <span><a tabindex="0" [routerLink]="['/item', item.id]" [title]="item.comments_count + ' comments'">{{item.comments_count}} comments</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <app-no-data *ngIf="!pageData.length"></app-no-data>
+        </section>
     </div>
-</div>
+</section>

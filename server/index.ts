@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
-const { AppModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main.bundle.js');
+const { LAZY_MODULE_MAP } = require('./dist-server/main.bundle.js');
 import { angularUniversal } from 'angular4-universal-express';
 
 /**
