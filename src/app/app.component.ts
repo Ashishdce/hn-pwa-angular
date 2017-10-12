@@ -29,5 +29,8 @@ export class AppComponent implements OnInit {
       }, 5000);
     });
   }
+  skipContent(e) {
+    console.log(e);
+  }
 }
 

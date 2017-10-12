@@ -31,6 +31,7 @@
             }
         },
         {
+            "name": "server",
             "root": "src",
             "outDir": "functions/dist-server",
             "assets": [

@@ -7,11 +7,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { UserComponent } from './components/user/user.component';
 
 import { ContentModule } from './components/content/content.module';
 import { ItemModule } from './components/item/item.module';
-// import { UserModule } from './components/user/user.module';
+import { UserModule } from './components/user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Services } from './services';
 
@@ -21,14 +20,13 @@ import { Services } from './services';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoaderComponent,
-    UserComponent
+    LoaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angularHNA'}),
     AppRoutingModule,
     ContentModule,
-    // UserModule,
+    UserModule,
     ItemModule,
     HttpClientModule,
     HttpModule

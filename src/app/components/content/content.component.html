@@ -1,6 +1,6 @@
 <div class="left-button buttons" *ngIf="currentPageNumber - 1 > 0" (click)="navigate('left')" tabindex="0"> &#10095; </div>
 <div class="right-button buttons" *ngIf="pageData.length === 30" (click)="navigate('right')" tabindex="0"> &#10095; </div>
-<div class="container">
+<div class="container" id="content">
     <div class="item clearfix" *ngFor="let item of pageData; let i = index">
         <div class="count">
             {{i+count}}

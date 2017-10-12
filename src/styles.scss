@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "variables.scss";
 html,
 body,
 div,
@@ -58,7 +59,7 @@ ul {
 
 * {
     box-sizing: border-box;
-    outline: none;
+    // outline: none;
 }
 
 body {
@@ -90,14 +91,14 @@ body {
 
 .button {
     background: none;
-    border: 1px solid #00d1b2;
+    border: 1px solid $accent-color;
     border-radius: 5px;
-    color: #00d1b2;
+    color: $accent-color;
     text-align: center;
     cursor: pointer;
     transition: all 0.15s ease-in-out;
     &:hover {
-        background: #00d1b2;
+        background: $accent-color;
         color: #fff;
     }
 }

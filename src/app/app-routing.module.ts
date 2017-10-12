@@ -99,8 +99,7 @@ const routes: Routes = [
         path: 'user',
         children: [{
             path: ':id',
-            // loadChildren: 'app/components/user/user.module#UserModule',
-            component: UserComponent,
+            loadChildren: 'app/components/user/user.module#UserModule',
             resolve: {
                 content: DataResolver
             },
@@ -146,7 +145,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-      RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes, {initialNavigation: 'enabled'})
     ],
     exports: [
       RouterModule

@@ -1,6 +1,6 @@
 <header class="header">
     <div class="container">
-        <div class="image" (click)="navigate('image-click')"> ​
+        <div class="image" (click)="navigate('image-click')">
             <picture>
                 <source srcset="../../../assets/logo-webp.webp" type="image/webp">
                 <img src="../../../assets/logo.png" alt="logo">
@@ -14,7 +14,7 @@
 </header>
 <nav [ngClass]="{'navigation': true, 'fix-header': fixHeader}">
     <div class="container">
-        <button class="button menu-button" aria-haspopup="true" aria-controls="dropdown-menu" (click)="toggleMenu()" tabindex="0">&#9776;</button>
+        <button class="button menu-button" (click)="toggleMenu()" tabindex="0">&#9776;</button>
         <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" role="menu">
             <a routerLink="/newest" routerLinkActive="active" (click)="showMenu = false">Top</a>
             <a routerLink="/news" routerLinkActive="active" (click)="showMenu = false">New</a>

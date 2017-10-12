@@ -1,4 +1,5 @@
 <div [ngClass]="{'grey-out': greyOut}">
+    <button class="skip" (click)="skipContent(button)" #button>Skip to content</button>
     <app-header></app-header>
     <div class="wrapper">
         <router-outlet></router-outlet>

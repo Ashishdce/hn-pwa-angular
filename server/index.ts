@@ -1,6 +1,9 @@
 const functions = require('firebase-functions');
 const express = require('express');
-const angular_universal_express_1 = require('angular-universal-express');
+const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
+const { AppModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main.bundle.js');
+import { angularUniversal } from 'angular4-universal-express';
+
 /**
  * Create a Cloud Function HTTPS Trigger configured to generate
  * Angular Universal responses.
@@ -32,19 +35,19 @@ function createExpressApp(config) {
         res.set('Cache-Control', cacheControlValue);
         next();
     });
-    router.get('/*', angular_universal_express_1.angularUniversal(config));
-    router.get('/jobs/:id', angular_universal_express_1.angularUniversal(config));
-    router.get('/jobs/:id/*', angular_universal_express_1.angularUniversal(config));
-    router.get('/newest/:id', angular_universal_express_1.angularUniversal(config));
-    router.get('/newest/:id/*', angular_universal_express_1.angularUniversal(config));
-    router.get('/show/:id', angular_universal_express_1.angularUniversal(config));
-    router.get('/show/:id/*', angular_universal_express_1.angularUniversal(config));
-    router.get('/ask/:id', angular_universal_express_1.angularUniversal(config));
-    router.get('/ask/:id/*', angular_universal_express_1.angularUniversal(config));
-    router.get('/news/:id', angular_universal_express_1.angularUniversal(config));
-    router.get('/news/:id/*', angular_universal_express_1.angularUniversal(config));
-    router.get('/user/:id', angular_universal_express_1.angularUniversal(config));
-    router.get('/user/:id/*', angular_universal_express_1.angularUniversal(config));
+    router.get('/*', angularUniversal(config));
+    // router.get('/jobs/:id', angularUniversal(config));
+    // router.get('/jobs/:id/*', angularUniversal(config));
+    // router.get('/newest/:id', angularUniversal(config));
+    // router.get('/newest/:id/*', angularUniversal(config));
+    // router.get('/show/:id', angularUniversal(config));
+    // router.get('/show/:id/*', angularUniversal(config));
+    // router.get('/ask/:id', angularUniversal(config));
+    // router.get('/ask/:id/*', angularUniversal(config));
+    // router.get('/news/:id', angularUniversal(config));
+    // router.get('/news/:id/*', angularUniversal(config));
+    // router.get('/user/:id', angularUniversal(config));
+    // router.get('/user/:id/*', angularUniversal(config));
     return router;
 }
 
@@ -81,13 +84,15 @@ function getCacheControlHeader(config) {
 }
 
 import { enableProdMode } from '@angular/core';
-// import * as angularUniversal from 'angular-universal-express-firebase';
 export let hnAngularApp = trigger({
     index: __dirname + '/dist-server/index.html',
     main: __dirname + '/dist-server/main.bundle',
     enableProdMode: true,
-    cdnCacheExpiry: 1200,
-    browserCacheExpiry: 600,
-    staticDirectory: __dirname + '/dist'
+    cdnCacheExpiry: 12000,
+    browserCacheExpiry: 6000,
+    staticDirectory: __dirname + '/dist',
+    extraProviders: [
+        provideModuleMap(LAZY_MODULE_MAP)
+    ]
 });
 

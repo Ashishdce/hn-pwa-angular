@@ -16,6 +16,8 @@ $primary-color: #00d1b2;
         }
     }
     .other-info {
+        overflow: hidden;
+        word-break: break-word;
         p {
             margin-bottom: 10px;
             font-size: 14px;

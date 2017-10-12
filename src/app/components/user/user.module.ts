@@ -1,23 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-// import { UserComponent } from './user.component';
+import { UserComponent } from './user.component';
 
 @NgModule({
   declarations: [
-    // UserComponent,
+    UserComponent,
   ],
   imports: [
-    // CommonModule,
-    // RouterModule.forChild([
-    //     {
-    //       path: '',
-    //       component: UserComponent
-    //     }
-    // ])
+    CommonModule,
+    RouterModule.forChild([
+        {
+          path: '',
+          component: UserComponent
+        }
+    ])
   ],
   providers: [],
-  // exports: [UserComponent],
-  // entryComponents: [UserComponent]
+  exports: [UserComponent],
+  entryComponents: [UserComponent]
 })
 export class UserModule {}
