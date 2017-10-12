@@ -1,3 +1,5 @@
+import { Title } from '@angular/platform-browser';
+import { BehaviorSubject } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -11,52 +13,59 @@ import { Renderer2 } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   showMenu = false;
-  fixHeader = false;
-  isScrolledUp = false;
-  showIndexing = true;
-  showScrollButton = false;
-  currentType;
-  count = 0;
-  pageType;
-  pageName = 'Top Stories';
+  isScrollBtnActive = false;
   curPageNumber = 1;
-  currentEvent;
+  navRoutes: any[];
+  title: string;
+  pageTitle = 'Hacker News';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private service: CommonService,
     private location: Location,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    private titleService: Title
+  ) {
+      this.service.$routeData.subscribe(data => {
+        this.title = data['name'] || '';
+        this.titleService.setTitle(`${this.pageTitle} ${this.title ? '| ' + this.title : ''}`);
+        this.showMenu = false;
+        this.scrollUp();
+      });
+    }
 
   ngOnInit() {
+
+    this.navRoutes = this.router.config.filter(c => c.data && c.data.nav).sort(this.sortPriority);
+
     this.renderer.listen('window', 'scroll', (e) => {
       const yScroll = e['path'][1]['scrollY'];
-      this.currentEvent = e;
       if (yScroll >= 115) {
         if (yScroll > 300) {
-          this.showScrollButton = true;
+          this.isScrollBtnActive = true;
         } else {
-          this.showScrollButton = false;
+          this.isScrollBtnActive = false;
         }
-        this.fixHeader = true;
       } else {
-        this.showScrollButton = false;
-        this.fixHeader = false;
+        this.isScrollBtnActive = false;
       }
     });
 
     this.service.$pageDetails.subscribe(data => {
       if (data) {
-        this.pageName = data['name'];
-        this.pageType = data['type'];
         this.curPageNumber = data['id'] ? data['id'] : null;
-        if (!this.curPageNumber) {
-          this.showIndexing = false;
-        } else {
-          this.showIndexing = true;
-        }
+        console.log(this.curPageNumber);
       }
     });
+  }
+  sortPriority(a, b) {
+    if (a.data.priority < b.data.priority) {
+      return -1;
+    }
+    if (a.data.priority > b.data.priority) {
+      return 1;
+    }
+    return 0;
   }
   toggleMenu() {
     this.showMenu = !this.showMenu;
@@ -69,6 +78,8 @@ export class HeaderComponent implements OnInit {
     }
   }
   scrollUp() {
-    this.currentEvent['path'][1].scrollTo(0, 0);
+    if (window) {
+      window.scrollTo(0, 0);
+    }
   }
 }

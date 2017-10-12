@@ -1,101 +1,56 @@
-$primary-color: #00d1b2;
-.container {
-    padding: 0 15px;
-    margin-top: 30px;
-    .item {
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        position: relative;
-        border-bottom: 1px solid rgba(31, 28, 28, 0.23);
-        &:last-of-type {
-            border-bottom: none;
-        }
-        .count {
-            width: 100px;
-            position: absolute;
-            text-align: center;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18px;
-            opacity: 0.15;
-            z-index: -1;
-        }
-        .story-title {
-            a {
-                text-decoration: none;
-                font-size: 15px;
-                line-height: 1.25;
-                color: $primary-color;
-            }
-        }
-        .domain {
-            font-size: 12px;
-            margin-top: 2px;
-        }
-        .description {
-            margin-top: 10px;
-            font-size: 12px;
-            .left-content {
-                float: left;
-                .user-name {
-                    font-weight: 600;
-                    cursor: pointer;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-            .right-content {
-                float: right;
-                cursor: pointer;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
+@import "../../../assets/sass/variables";
+.section {
+    padding-top: 2rem;
+}
+.panel{
+    .panel-block{
+        padding-left: 0;
+        background: $primary-color-text;
     }
 }
-
-.buttons {
-    width: 60px;
-    height: 75px;
+.count{
+    min-width: 70px;
+    .title{
+        color: $primary-color;
+    }
+}
+.meta{
+    color: $secondary-text-color;
+    a{
+        text-decoration: underline;
+    }
+}
+.level.is-mobile .level-item {
+    flex-shrink: 1;
+}
+.nav-pagination{
+    position: fixed;
+    top: 3.2rem;
+    z-index: 9999;
+    height: 3.2rem;
+    padding: 0.5rem 0;
+    right: calc((100vw - 960px)/2);
+}
+.pager{
     position: fixed;
     top: 50%;
-    background: $primary-color;
-    color: #fff;
-    z-index: 45;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    font-size: 35px;
-    padding-top: 19px;
-    padding-left: 13px;
-    opacity: 0.35;
-    transition: all 0.15s ease-in-out;
-    cursor: pointer;
-    &:hover {
-        opacity: 1;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 2.5rem * 2;
+    background: rgba($primary-color,1);
+    z-index: 9999;
+    span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        color: #FFFFFF;
     }
-}
-
-.left-button {
-    left: 0;
-    transform: translate(-35%, -50%) rotate(180deg);
-}
-
-.right-button {
-    right: 0;
-    transform: translate(35%, -50%);
-}
-
-@media screen and (min-width: 768px) {
-    .container {
-        .item {
-            .story-title {
-                a {
-                    font-size: 18px;
-                }
-            }
-        }
+    &.is-left{
+        left: 0;
+    }
+    &.is-right{
+        right: 0;
     }
 }

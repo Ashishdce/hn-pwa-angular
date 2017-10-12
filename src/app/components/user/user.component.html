@@ -1,11 +1,16 @@
-<div class="container">
-    <div class="user-info clearfix">
-        <h2 class="title truncate" [innerHTML]="userData.id ? userData.id : ''"></h2>
-        <p class="karma" [innerHTML]="userData.karma ? userData.karma +' &#9733;': '0 &#9733;'"></p>
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-hidden-touch">User</h2>
+    <div class="card" *ngIf="userData.id">
+      <div class="card-content">
+        <div class="content">
+          <p class="title is-4">{{userData.id}}</p>
+          <p class="subtitle is-6" *ngIf="userData.karma">{{userData.karma}} &#9733;</p>
+        </div>
+        <div class="content" *ngIf="userData.about" [innerHTML]="userData.about"></div>
+        <p class="is-size-7" *ngIf="userData.created">Account created {{userData.created}}</p>
+      </div>
     </div>
-    <div class="other-info">
-        <p class="creation truncate" [innerHTML]="userData.created ? 'Created ' + userData.created : 'Cant say when this user was created..'"></p>
-        <p class="subtitle truncate">About <span>{{userData.id}}...</span></p>
-        <p class="about" [innerHTML]="userData.about ? userData.about: 'Nothing to display about this user...'"></p>
-    </div>
-</div>
+    <app-no-data *ngIf="!userData.id"></app-no-data>
+  </div>
+</section>

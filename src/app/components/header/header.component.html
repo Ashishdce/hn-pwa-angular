@@ -1,36 +1,59 @@
-<header class="header">
-    <div class="container">
-        <div class="image" (click)="navigate('image-click')"> ​
-            <picture>
-                <source srcset="../../../assets/logo-webp.webp" type="image/webp">
-                <img src="../../../assets/logo.png" alt="logo">
-            </picture>
+<header class="is-fixed">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" [routerLink]="['/']">
+                    <img src="../../../assets/anonymous.svg" alt="HackerNews" height="64">
+                </a>
+                <div class="navbar-item is-paddingless">
+                    <p class="header is-size-6">
+                        Hacker News <span class="is-hidden-desktop" *ngIf="title">| {{title}}</span>
+                        <span class="header is-size-7 is-hidden-touch">Powered by Angular</span>
+                    </p>
+                </div>
+                <div class="navbar-item is-hidden-desktop">
+                    <div class="tags has-addons" *ngIf="curPageNumber">
+                        <span class="tag">Page</span>
+                        <span class="tag is-dark">{{curPageNumber}}</span>
+                    </div>
+                </div>
+                <button class="button is-primary navbar-burger" [ngClass]="{'is-active': showMenu}" (click)="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="navbar-menu" [ngClass]="{'is-active': showMenu}">
+                <div class="navbar-start is-hidden-desktop">
+                    <ng-container *ngFor="let navRoute of navRoutes">
+                        <a class="navbar-item" [routerLink]="[navRoute.path]" [routerLinkActive]="'is-active'">
+                            {{navRoute.data.name}}
+                        </a>
+                    </ng-container>
+                </div>
+            </div>
         </div>
-        <div class="heading">
-            <p class="truncate">HackerNews</p>
-            <p class="truncate">powered by <span>Angular</span></p>
+    </nav>
+    <nav class="navbar has-shadow is-hidden-touch">
+        <div class="container">
+            <div class="navbar-tabs">
+            <ng-container *ngFor="let navRoute of navRoutes">
+                <a class="navbar-item is-tab " [routerLink]="[navRoute.path]" [routerLinkActive]="'is-active'">
+                    {{navRoute.data.name}}
+                </a>
+            </ng-container>
+            </div>
+            <div class="spacer"></div>
+            <div class="level">
+                <div class="level-item">
+                    <div class="tags has-addons" *ngIf="curPageNumber">
+                        <span class="tag">Page</span>
+                        <span class="tag is-primary">{{curPageNumber}}</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
-<nav [ngClass]="{'navigation': true, 'fix-header': fixHeader}">
-    <div class="container">
-        <button class="button menu-button" aria-haspopup="true" aria-controls="dropdown-menu" (click)="toggleMenu()" tabindex="0">&#9776;</button>
-        <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" role="menu">
-            <a routerLink="/newest" routerLinkActive="active" (click)="showMenu = false">Top</a>
-            <a routerLink="/news" routerLinkActive="active" (click)="showMenu = false">New</a>
-            <a routerLink="/show" routerLinkActive="active" (click)="showMenu = false">Show</a>
-            <a routerLink="/ask" routerLinkActive="active" (click)="showMenu = false">Asks</a>
-            <a routerLink="/jobs" routerLinkActive="active" (click)="showMenu = false">Jobs</a>
-        </div>
-        <div class="page-name">
-            <p class="truncate" [innerHTML]="pageName"></p>
-        </div>
-        <div class="index" *ngIf="showIndexing">
-            {{curPageNumber}}
-        </div>
-        <button class="button back-button" (click)="navigate('back')" *ngIf="!showIndexing">Back</button>
-    </div>
-    <div class="modal-background" *ngIf="showMenu" (click)="showMenu = false"></div>
-</nav>
-<div class="divider" *ngIf="fixHeader"></div>
-<button [ngClass]="{'scroll-button': true, 'show-scroll': showScrollButton}" type="button" (click)="scrollUp()">&#10095;</button>
+<button [ngClass]="{'is-active': isScrollBtnActive}" type="button" class="is-scroll-btn" (click)="scrollUp()">Top</button>
+<div class="navbar-shadow is-hidden-desktop" [ngClass]="{'is-active': showMenu}" (click)="toggleMenu()"></div>

@@ -6,14 +6,14 @@ import { Renderer2 } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public greyOut = false;
+  public offline = false;
   public showAlert = false;
   constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
     this.renderer.listen('window', 'offline', (e) => {
       console.log('offline');
-      this.greyOut = true;
+      this.offline = true;
       this.showAlert = true;
       console.log(e);
       e['path'][0].setTimeout(() => {
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     });
     this.renderer.listen('window', 'online', (e) => {
       console.log('online');
-      this.greyOut = false;
+      this.offline = false;
       this.showAlert = true;
       e['path'][0].setTimeout(() => {
         this.showAlert = false;

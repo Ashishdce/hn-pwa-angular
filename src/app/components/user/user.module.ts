@@ -1,3 +1,4 @@
+import { NoDataModule } from '../no-data/no-data.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -8,13 +9,7 @@ import { RouterModule } from '@angular/router';
     // UserComponent,
   ],
   imports: [
-    // CommonModule,
-    // RouterModule.forChild([
-    //     {
-    //       path: '',
-    //       component: UserComponent
-    //     }
-    // ])
+    NoDataModule
   ],
   providers: [],
   // exports: [UserComponent],
