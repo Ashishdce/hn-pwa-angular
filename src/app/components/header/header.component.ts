@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { CommonService } from '../../services';
 import { Renderer2 } from '@angular/core';
+
 @Component({
   selector: 'app-header',
   moduleId: module.id,
@@ -17,6 +18,8 @@ export class HeaderComponent implements OnInit {
   curPageNumber = 1;
   navRoutes: any[];
   title: string;
+  currentEvent;
+  showBackButton = true;
   pageTitle = 'Hacker News';
   constructor(
     private router: Router,
@@ -27,6 +30,11 @@ export class HeaderComponent implements OnInit {
     private titleService: Title
   ) {
       this.service.$routeData.subscribe(data => {
+        if (data['type'] === 'user' || data['type'] === 'item') {
+          this.showBackButton = true;
+        } else {
+          this.showBackButton = false;
+        }
         this.title = data['name'] || '';
         this.titleService.setTitle(`${this.pageTitle} ${this.title ? '| ' + this.title : ''}`);
         this.showMenu = false;
@@ -40,6 +48,7 @@ export class HeaderComponent implements OnInit {
 
     this.renderer.listen('window', 'scroll', (e) => {
       const yScroll = e['path'][1]['scrollY'];
+      this.currentEvent = e;
       if (yScroll >= 115) {
         if (yScroll > 300) {
           this.isScrollBtnActive = true;
@@ -54,7 +63,6 @@ export class HeaderComponent implements OnInit {
     this.service.$pageDetails.subscribe(data => {
       if (data) {
         this.curPageNumber = data['id'] ? data['id'] : null;
-        console.log(this.curPageNumber);
       }
     });
   }
@@ -78,8 +86,11 @@ export class HeaderComponent implements OnInit {
     }
   }
   scrollUp() {
-    if (window) {
-      window.scrollTo(0, 0);
+    if (this.currentEvent) {
+      this.currentEvent['path'][1].scrollTo(0, 0);
     }
+  }
+  navigateBack() {
+    this.location.back();
   }
 }

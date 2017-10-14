@@ -54,6 +54,13 @@
                     "key": "Link",
                     "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
+            },
+            {
+                "source": "**/*.@(jpg|jpeg|gif|png|js|css|json|svg|ico|scss|html)",
+                "headers": [{
+                    "key": "Cache-Control",
+                    "value": "max-age=31536000"
+                }]
             }
         ]
     }

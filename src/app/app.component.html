@@ -1,8 +1,9 @@
+<a href="javascript:void(0)" class="skip-link" (click)="skipContent($event)" aria-label="skip to main content" role="button">Skip to main content</a>
 <div [ngClass]="{'offline': offline}">
     <app-header></app-header>
-    <div class="wrapper hero is-light">
+    <main class="wrapper hero is-light" role="main">
         <router-outlet hidden></router-outlet>
-    </div>
+    </main>
     <app-footer></app-footer>
     <app-loader></app-loader>
 </div>

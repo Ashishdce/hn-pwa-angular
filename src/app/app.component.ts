@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { Renderer2 } from '@angular/core';
 export class AppComponent implements OnInit {
   public offline = false;
   public showAlert = false;
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit() {
     this.renderer.listen('window', 'offline', (e) => {
@@ -30,7 +30,10 @@ export class AppComponent implements OnInit {
     });
   }
   skipContent(e) {
-    console.log(e);
+    e.preventDefault();
+    console.log(this.el.nativeElement);
+    const firstlink = this.el.nativeElement.querySelector('.content > a');
+    firstlink.focus();
   }
 }
 

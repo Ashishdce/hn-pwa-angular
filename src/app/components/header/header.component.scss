@@ -1,4 +1,8 @@
 @import "../../../assets/sass/variables";
+.parent {
+    position: relative;
+}
+
 .is-fixed {
     position: fixed;
     width: 100%;
@@ -43,11 +47,8 @@
     }
 }
 
-.is-scroll-btn {
-    position: fixed;
+.custom-btn {
     z-index: 99998;
-    bottom: 24px;
-    right: 24px;
     border-radius: 100%;
     opacity: 0;
     visibility: hidden;
@@ -59,8 +60,6 @@
     text-align: center;
     letter-spacing: .5px;
     cursor: pointer;
-    width: 56px;
-    height: 56px;
     line-height: 54px;
     padding: 0;
     vertical-align: middle;
@@ -77,5 +76,30 @@
         opacity: 1;
         visibility: visible;
         transform: scale(1);
+    }
+}
+
+.scroll-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+}
+
+.back-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+    line-height: inherit;
+    top: 63px;
+    left: 24px;
+}
+
+@media screen and (min-width: 1024px) {
+    .back-btn {
+        left: 0;
+        top: 120px;
     }
 }

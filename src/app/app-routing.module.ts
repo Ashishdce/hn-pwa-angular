@@ -1,5 +1,4 @@
 import { UserComponent } from './components/user/user.component';
-
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DataResolver } from './services';
@@ -10,7 +9,7 @@ const routes: Routes = [
         data: {
             name: 'Newest',
             nav: true,
-            priority: 2
+            priority: 1
         },
         children: [{
             path: ':id',
@@ -33,7 +32,7 @@ const routes: Routes = [
         data: {
             name: 'News',
             nav: true,
-            priority: 1
+            priority: 2
         },
         children: [{
             path: ':id',

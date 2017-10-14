@@ -7,7 +7,7 @@
                     <p class="title is-4">{{userData.id}}</p>
                     <p class="subtitle is-6" *ngIf="userData.karma">{{userData.karma}} &#9733;</p>
                 </div>
-                <div class="content" *ngIf="userData.about" [innerHTML]="userData.about"></div>
+                <div class="content user-about" *ngIf="userData.about" [innerHTML]="userData.about"></div>
                 <p class="is-size-7" *ngIf="userData.created">Account created {{userData.created}}</p>
             </div>
         </div>

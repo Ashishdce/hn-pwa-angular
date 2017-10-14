@@ -30,3 +30,16 @@
         padding-top: 3.25rem * 2;
     }
 }
+
+.skip-link {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    &:focus {
+        z-index: 999999;
+    }
+}
