@@ -12,7 +12,10 @@ export class ContentComponent implements OnInit {
   currentPageNumber: number;
   count: number;
   pageType;
-  constructor(private route: ActivatedRoute, private router: Router, private service: CommonService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private service: CommonService) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {

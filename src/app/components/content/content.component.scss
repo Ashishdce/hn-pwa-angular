@@ -2,28 +2,33 @@
 .section {
     padding-top: 2rem;
 }
-.panel{
-    .panel-block{
+
+.panel {
+    .panel-block {
         padding-left: 0;
         background: $primary-color-text;
     }
 }
-.count{
+
+.count {
     min-width: 70px;
-    .title{
+    .title {
         color: $primary-color;
     }
 }
-.meta{
+
+.meta {
     color: $secondary-text-color;
-    a{
+    a {
         text-decoration: underline;
     }
 }
+
 .level.is-mobile .level-item {
     flex-shrink: 1;
 }
-.nav-pagination{
+
+.nav-pagination {
     position: fixed;
     top: 3.2rem;
     z-index: 9999;
@@ -31,15 +36,16 @@
     padding: 0.5rem 0;
     right: calc((100vw - 960px)/2);
 }
-.pager{
+
+.pager {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
     width: 1.5rem;
     height: 2.5rem * 2;
-    background: rgba($primary-color,1);
+    background: rgba($primary-color, 1);
     z-index: 9999;
-    span{
+    span {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -47,10 +53,10 @@
         font-size: 30px;
         color: #FFFFFF;
     }
-    &.is-left{
+    &.is-left {
         left: 0;
     }
-    &.is-right{
+    &.is-right {
         right: 0;
     }
 }
