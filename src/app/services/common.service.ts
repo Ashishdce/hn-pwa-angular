@@ -1,10 +1,10 @@
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Subject, BehaviorSubject } from 'rxjs/Rx';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CommonService {
-  public $loader = new Subject<boolean>();
+  public $loader = new BehaviorSubject<boolean>(false);
   public $pageDetails = new BehaviorSubject <Object>({});
   public $routeData = new BehaviorSubject <Object>({});
   public $totalCount = new BehaviorSubject <number>(1);

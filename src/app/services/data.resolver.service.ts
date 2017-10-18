@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { CommonService } from './common.service';
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class DataResolver implements Resolve<any> {
    private baseRoute = 'https://node-hnapi.herokuapp.com';
