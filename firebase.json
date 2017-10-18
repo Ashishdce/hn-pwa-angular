@@ -10,49 +10,49 @@
                 "source": "/newest/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/news/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/ask/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/show/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/jobs/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/item/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/user/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</vendor.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
+                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw-manifest.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</sw-register.bundle.js>;rel=preload;as=script,</worker-basic.min.js>;rel=preload;as=script"
                 }]
             },
             {
