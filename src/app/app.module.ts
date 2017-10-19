@@ -13,6 +13,7 @@ import { ItemModule } from './components/item/item.module';
 import { UserModule } from './components/user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Services } from './services';
+// import { BrowserPrebootModule } from 'preboot/browser';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { Services } from './services';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angularHNA'}),
+    // BrowserPrebootModule.replayEvents(),
     AppRoutingModule,
     ContentModule,
     UserModule,

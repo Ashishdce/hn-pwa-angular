@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { UniversalInterceptor } from './services';
+// import { ServerPrebootModule } from 'preboot/server';
 
 import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
 
@@ -12,7 +13,8 @@ import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
   imports: [
     ServerModule,
     AppModule,
-    ModuleMapLoaderModule
+    ModuleMapLoaderModule,
+    // ServerPrebootModule.recordEvents({ appRoot: 'app-root' })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

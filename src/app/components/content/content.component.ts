@@ -1,5 +1,5 @@
 import { CommonService } from '../../services';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,24 +7,26 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent implements OnInit, OnDestroy {
   pageData: Array<Object> = [];
   currentPageNumber: number;
   count: number;
+  routeSubscription;
+  pageDetailsSubscription;
   pageType;
   constructor(
-    private route: ActivatedRoute, 
-    private router: Router, 
+    private route: ActivatedRoute,
+    private router: Router,
     private service: CommonService) { }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
+    this.routeSubscription = this.route.data.subscribe(data => {
       if (data) {
         this.pageData = data['content'] || [];
         this.service.$totalCount.next(this.pageData.length);
       }
     });
-    this.service.$pageDetails.subscribe(data => {
+    this.pageDetailsSubscription = this.service.$pageDetails.subscribe(data => {
       if (data) {
         this.pageType = data['type'];
         this.currentPageNumber = data['id'] ? data['id'] : null;
@@ -42,5 +44,9 @@ export class ContentComponent implements OnInit {
     } else {
       this.router.navigate([`/user/${val}`]);
     }
+  }
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+    this.pageDetailsSubscription.unsubscribe();
   }
 }

@@ -1,9 +1,10 @@
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 
 @Injectable()
-export class CommonService {
+export class CommonService implements OnDestroy {
+  routeSubscription;
   public $loader = new BehaviorSubject<boolean>(false);
   public $pageDetails = new BehaviorSubject <Object>({});
   public $routeData = new BehaviorSubject <Object>({});
@@ -18,7 +19,7 @@ export class CommonService {
     'item': 'Comments'
   };
   constructor(private router: Router, private route: ActivatedRoute) {
-    router.events.subscribe(event => {
+    this.routeSubscription = router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.$routeData.next(Object.assign({}, this.$routeData.getValue(), route.snapshot.firstChild.data));
       }
@@ -35,5 +36,8 @@ export class CommonService {
     };
     this.$routeData.next(Object.assign({}, this.route.snapshot.data, obj));
     this.$pageDetails.next(obj);
+  }
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
   }
 }

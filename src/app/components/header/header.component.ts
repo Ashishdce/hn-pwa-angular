@@ -1,6 +1,6 @@
 import { Title } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { CommonService } from '../../services';
@@ -12,7 +12,7 @@ import { Renderer2 } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   showMenu = false;
   isScrollBtnActive = false;
   curPageNumber = 1;
@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit {
   currentEvent;
   showBackButton = true;
   pageTitle = 'Hacker News';
+  routeSubscription;
+  pageDataSubscription;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -29,7 +31,7 @@ export class HeaderComponent implements OnInit {
     private renderer: Renderer2,
     private titleService: Title
   ) {
-      this.service.$routeData.subscribe(data => {
+      this.routeSubscription = this.service.$routeData.subscribe(data => {
         if (data['type'] === 'user' || data['type'] === 'item') {
           this.showBackButton = true;
         } else {
@@ -60,7 +62,7 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-    this.service.$pageDetails.subscribe(data => {
+    this.pageDataSubscription = this.service.$pageDetails.subscribe(data => {
       if (data) {
         this.curPageNumber = data['id'] ? data['id'] : null;
       }
@@ -92,5 +94,9 @@ export class HeaderComponent implements OnInit {
   }
   navigateBack() {
     this.location.back();
+  }
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+    this.pageDataSubscription.unsubscribe();
   }
 }
