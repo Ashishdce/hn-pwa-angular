@@ -1,6 +1,6 @@
 <header class="is-fixed" role="banner">
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-        <div class="container parent">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
             <button [ngClass]="{'is-active': showBackButton}" role="button" aria-label="back button" class="custom-btn back-btn" (click)="navigateBack()">Back</button>
             <div class="navbar-brand">
                 <a class="navbar-item" [routerLink]="['/']">
@@ -37,7 +37,7 @@
     </nav>
     <nav class="navbar has-shadow is-hidden-touch" role="navigation">
         <div class="container">
-            <div class="navbar-tabs">
+            <div class="navbar-tabs second">
                 <ng-container *ngFor="let navRoute of navRoutes">
                     <a class="navbar-item is-tab " [routerLink]="[navRoute.path]" [routerLinkActive]="'is-active'">
                     {{navRoute.data.name}}

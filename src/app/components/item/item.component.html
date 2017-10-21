@@ -1,25 +1,29 @@
-<div class="container" id="content">
-    <div class="item">
-        <p [innerHTML]="commentData?.title"></p>
-        <div class="about clearfix">
-            <a [href]="commentData?.url" target="_blank" rel="noopener">Read about it</a>
-            <p (click)="showMore = !showMore"><span [ngClass]="{'rotate': showMore}">{{'&#10095;'}}</span>{{showMore ? 'Show Less' : 'Show More'}}</p>
+<section class="section">
+    <div class="container">
+        <div class="item">
+            <p [innerHTML]="commentData?.title" class="is-5"></p>
+            <div class="about clearfix">
+                <a [href]="commentData?.url" target="_blank" rel="noopener">Read about it</a>
+                <p (click)="showMore = !showMore" [ngClass]="{'rotate': showMore}">
+                    <span></span>
+                    <span></span>{{showMore ? 'Show Less' : 'Show More'}}</p>
+            </div>
+            <div [ngClass]="{'more-info': true, 'box': showMore, 'animate': showMore }">
+                <p>By
+                    <a [innerHTML]="' ' + commentData?.user" [routerLink]="'/user/' + commentData?.user"></a>
+                </p>
+                <p [innerHTML]="(commentData?.points ? commentData?.points : 0) + ' &#9733;'"></p>
+                <p [innerHTML]="'Posted ' + commentData?.time_ago"></p>
+                <p [innerHTML]="commentData?.domain" *ngIf="commentData?.domain"></p>
+            </div>
         </div>
-        <div [ngClass]="{'more-info': true, 'box': showMore, 'animate': showMore }">
-            <p>By
-                <a [innerHTML]="' ' + commentData?.user" [routerLink]="'/user/' + commentData?.user"></a>
-            </p>
-            <p [innerHTML]="(commentData?.points ? commentData?.points : 0) + ' &#9733;'"></p>
-            <p [innerHTML]="'Posted ' + commentData?.time_ago"></p>
-            <p [innerHTML]="commentData?.domain" *ngIf="commentData?.domain"></p>
-        </div>
-    </div>
-    <div class="comments-wrapper">
-        <p [ngClass]="{'comment-header': commentData?.comments_count }" [innerHTML]="commentData?.comments_count ? commentData?.comments_count + ' comments' : 'No Comments yet.'"></p>
-        <div class="comments" *ngIf="commentData?.comments_count">
-            <div class="comment-item" *ngFor="let comment of commentData?.comments; let i = index">
-                <app-comment [data]="comment"></app-comment>
+        <div class="comments-wrapper">
+            <p [ngClass]="{'comment-header': commentData?.comments_count }" [innerHTML]="commentData?.comments_count ? commentData?.comments_count + ' comments' : 'No Comments yet.'"></p>
+            <div class="comments" *ngIf="commentData?.comments_count">
+                <div class="comment-item" *ngFor="let comment of commentData?.comments; let i = index">
+                    <app-comment [data]="comment"></app-comment>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

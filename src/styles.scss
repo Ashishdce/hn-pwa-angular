@@ -1,49 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "./assets/sass/reset";
 @import "./assets/sass/variables";
-@import "~bulma/sass/utilities/initial-variables";
-@import "~bulma/sass/utilities/functions";
-// All overrides go here
-// http://bulma.io/documentation/overview/variables/
-$radius-small: 0;
-$radius: 0;
-$radius-large: 0;
-$tag-radius: 3px;
-$primary: $primary-color;
-$grey-dark: $primary-text-color;
-$yellow: $primary-color;
-$navbar-tab-active-color: $primary;
-$navbar-tab-hover-border-bottom-color: $primary;
-$navbar-tab-active-border-bottom-color: $primary;
-// All base css requirements from bulma
-@import "~bulma/sass/utilities/_all";
-@import "~bulma/sass/base/_all";
-// @import "~bulma/sass/grid/columns";
-@import "~bulma/sass/layout/_all";
-// Elements imports - import only what is needed
-@import "~bulma/sass/elements/box.sass";
-@import "~bulma/sass/elements/button.sass";
-@import "~bulma/sass/elements/container.sass";
-@import "~bulma/sass/elements/content.sass";
-// @import "~bulma/sass/elements/form.sass";
-// @import "~bulma/sass/elements/icon.sass";
-// @import "~bulma/sass/elements/image.sass";
-@import "~bulma/sass/elements/notification.sass";
-// @import "~bulma/sass/elements/progress.sass";
-// @import "~bulma/sass/elements/table.sass";
-@import "~bulma/sass/elements/tag.sass";
-@import "~bulma/sass/elements/title.sass";
-@import "~bulma/sass/elements/other.sass";
-// Component imports - import only what is needed
-// @import "~bulma/sass/components/breadcrumb.sass";
-@import "~bulma/sass/components/card.sass";
-// @import "~bulma/sass/components/dropdown.sass";
-@import "~bulma/sass/components/level.sass";
-@import "~bulma/sass/components/media.sass";
-// @import "~bulma/sass/components/menu.sass";
-// @import "~bulma/sass/components/message.sass";
-// @import "~bulma/sass/components/modal.sass";
-@import "~bulma/sass/components/navbar.sass";
-@import "~bulma/sass/components/pagination.sass";
-@import "~bulma/sass/components/panel.sass";
-// @import "~bulma/sass/components/tabs.sass";
+body {
+    color: #212121;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #3273dc;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container {
+    margin: 0 auto;
+    position: relative;
+    @media screen and (min-width: 1024px) {
+        max-width: 960px;
+        width: 960px;
+    }
+    @media screen and (min-width: 1216px) {
+        max-width: 1152px;
+        width: 1152px;
+    }
+}
+
+.section {
+    padding: 3rem 1.5rem;
+}
+
+.is-4 {
+    font-size: 1.5rem
+}
+
+.is-5 {
+    font-size: 1.25rem
+}
+
+.is-size-6 {
+    font-size: 1rem!important;
+}
+
+.is-size-7 {
+    font-size: .75rem!important;
+}
+
+.is-hidden-desktop {
+    @media screen and (min-width: 1024px) {
+        display: none !important;
+    }
+}
+
+.is-hidden-touch {
+    @media screen and (max-width: 1023px) {
+        display: none !important
+    }
+}
+
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.25em;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-bottom: calc(.375em - 1px);
+    padding-left: calc(.625em - 1px);
+    padding-right: calc(.625em - 1px);
+    padding-top: calc(.375em - 1px);
+    position: relative;
+    vertical-align: top;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #fff;
+    border-color: #dbdbdb;
+    color: #363636;
+    cursor: pointer;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: .75em;
+    padding-right: .75em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.button.is-primary {
+    background-color: $primary-color;
+    border-color: transparent;
+    color: #fff;
+    &:hover {
+        background-color: #3b4ca9;
+        border-color: transparent;
+        color: #fff;
+    }
+}
+
+.clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}

@@ -1,12 +1,89 @@
 @import "../../../assets/sass/variables";
 .section {
     padding-top: 2rem;
-}
-
-.panel {
-    .panel-block {
-        padding-left: 0;
-        background: $primary-color-text;
+    .panel {
+        font-size: 1rem;
+        .panel-block {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            color: #363636;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            padding: .5em .75em;
+            padding-left: 0;
+            background: $primary-color-text;
+            border-bottom: 1px solid #dbdbdb;
+            border-left: 1px solid #dbdbdb;
+            border-right: 1px solid #dbdbdb;
+            &:first-child {
+                border-top: 1px solid #dbdbdb;
+            }
+            .level {
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                &.is-mobile {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                }
+                .level-item {
+                    flex-shrink: 1;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-preferred-size: auto;
+                    flex-basis: auto;
+                    -webkit-box-flex: 0;
+                    -ms-flex-positive: 0;
+                    flex-grow: 0;
+                    -ms-flex-negative: 0;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    margin: 0;
+                    &.has-text-centered {
+                        text-align: center;
+                    }
+                    &.has-text-left {
+                        text-align: left;
+                    }
+                    .count {
+                        .title {
+                            color: $primary-color;
+                            font-weight: 600;
+                            line-height: 1.125;
+                            word-break: break-word;
+                        }
+                        .heading {
+                            display: block;
+                            font-size: 11px;
+                            letter-spacing: 1px;
+                            margin: 0;
+                            text-transform: uppercase;
+                        }
+                    }
+                    a.is-size-6 {
+                        margin: 0;
+                        color: inherit;
+                    }
+                    span>a {
+                        color: #525252;
+                    }
+                }
+            }
+        }
     }
 }
 

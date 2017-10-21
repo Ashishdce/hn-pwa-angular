@@ -1,7 +1,18 @@
 @import "../../../assets/sass/variables";
-.footer{
-    padding-bottom: 3rem;
-    p {
-        color: $secondary-text-color;
+.footer {
+    padding: 3rem 1.5rem;
+    background-color: #f5f5f5;
+    .content {
+        text-align: center;
+        p {
+            color: $secondary-text-color;
+            margin-bottom: 1em;
+        }
+        a {
+            color: #184EA0;
+            &:hover {
+                color: #0f0f0f
+            }
+        }
     }
 }

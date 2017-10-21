@@ -1,8 +1,39 @@
 section {
     padding: 4rem 1.5rem 3rem !important;
-}
-
-.user-about {
-    overflow: hidden;
-    word-break: break-word;
+    h2 {
+        font-weight: 400;
+        line-height: 1.25;
+        margin-bottom: 1.5rem;
+        color: rgba(54, 54, 54, .9);
+    }
+    .card {
+        background-color: #fff;
+        box-shadow: 0 2px 3px hsla(0, 0%, 4%, .1), 0 0 0 1px hsla(0, 0%, 4%, .1);
+        color: #212121;
+        max-width: 100%;
+        position: relative;
+        .card-content {
+            padding: 1.5rem;
+            .content {
+                .title {
+                    font-weight: 600;
+                    line-height: 1.125;
+                    color: #363636;
+                    word-break: break-word;
+                }
+                .subtitle {
+                    font-weight: 400;
+                    line-height: 1.25;
+                    word-break: break-word;
+                }
+            }
+            .content:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+            .user-about {
+                overflow: hidden;
+                word-break: break-word;
+            }
+        }
+    }
 }

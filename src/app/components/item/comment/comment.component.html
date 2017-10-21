@@ -2,15 +2,15 @@
     <ng-template #noUser>
         <p>No User</p>
     </ng-template>
-    <p *ngIf="data?.user; else noUser">By
+    <p *ngIf="data?.user; else noUser" class="is-size-6">By
         <a [innerHTML]="' ' + data?.user" [routerLink]="'/user/' + data?.user"></a>
     </p>
     <p [innerHTML]="data?.time_ago"></p>
     <p [innerHTML]="data?.content"></p>
-    <div class="comment-wrapper">
-        <span class="toggle" *ngIf="data?.comments?.length" (click)="toggleComments = !toggleComments">
-            <span [ngClass]="{'rotate': !toggleComments}">{{ '&#10095;' }}</span>{{ toggleComments ? '&nbsp;&nbsp; Hide Comments&nbsp;' : '&nbsp;&nbsp; Show Comments('+ data?.comments.length +')&nbsp;'}}
-        </span>
+    <div class="comment-wrapper" [ngClass]="{'no-border': !data?.comments?.length}">
+        <p class="toggle" *ngIf="data?.comments?.length" (click)="toggleComments = !toggleComments" [ngClass]="{'rotate': !toggleComments}">
+            <span></span><span></span>{{ toggleComments ? '&nbsp;&nbsp; Hide Comments&nbsp;' : '&nbsp;&nbsp; Show Comments('+ data?.comments.length +')&nbsp;'}}
+        </p>
         <div>
             <div [ngClass]="{'toggleAnimate': toggleComments, 'comment-item': true}" *ngFor="let comment of data?.comments; let i  = index">
                 <app-comment [data]="comment" *ngIf="comment"></app-comment>

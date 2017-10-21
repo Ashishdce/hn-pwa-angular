@@ -1,3 +1,4 @@
+@import "../../../../assets/sass/variables";
 .comment {
     overflow: hidden;
     word-break: break-word;
@@ -7,15 +8,15 @@
         a {
             text-decoration: none;
             font-weight: 600;
-            color: #00d1b2;
+            color: $primary-color;
         }
     }
     p:nth-child(2) {
-        font-size: 12px;
+        font-size: .75rem
     }
     p:nth-child(3) {
         margin-top: 10px;
-        font-size: 14px;
+        font-size: .75rem;
         line-height: 20px;
     }
     .comment-wrapper {
@@ -25,28 +26,40 @@
         position: relative;
         .toggle {
             background: #fff;
-            top: -9px;
-            left: 11px;
+            top: -11px;
+            left: 0;
+            font-size: .75rem;
             position: absolute;
+            padding-left: 10px;
+            width: inherit;
             cursor: pointer;
             span {
+                &:first-of-type {
+                    transform: rotate(45deg);
+                }
+                &:last-of-type {
+                    transform: rotate(-45deg);
+                    left: 0;
+                }
+                background-color: $primary-color;
+                display: block;
+                height: 2px;
+                left: 6px;
                 position: absolute;
-                width: 20px;
-                height: 20px;
-                background: #00d1b2;
-                border-radius: 50%;
-                color: #fff;
-                text-align: center;
-                font-size: 13px;
-                padding-top: 4px;
-                top: -3px;
-                left: -12px;
-                padding-left: 1px;
-                -webkit-transform: rotate(90deg);
-                transform: rotate(90deg);
-                transition: -webkit-transform 0.15s ease-in-out;
-                transition: transform 0.15s ease-in-out;
-                transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+                top: 48%;
+                transition: -webkit-transform .3s ease-in-out;
+                transition: transform .3s ease-in-out;
+                transition: transform .3s ease-in-out,
+                -webkit-transform .3s ease-in-out;
+                width: 10px;
+            }
+            &.rotate {
+                span:first-of-type {
+                    transform: rotate(-45deg);
+                }
+                span:last-of-type {
+                    transform: rotate(45deg);
+                }
             }
         }
         .comment-item {
@@ -59,8 +72,7 @@
             opacity: 1;
         }
     }
-}
-
-.rotate {
-    transform: rotate(0) !important;
+    .no-border {
+        border: none !important;
+    }
 }
