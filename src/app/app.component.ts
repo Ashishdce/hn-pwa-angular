@@ -1,5 +1,8 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, InjectionToken, Inject } from '@angular/core';
 import { Renderer2 } from '@angular/core';
+
+export const PLATFORM_TOKEN = new InjectionToken<string>('foo');
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +11,7 @@ import { Renderer2 } from '@angular/core';
 export class AppComponent implements OnInit {
   public offline = false;
   public showAlert = false;
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private renderer: Renderer2, private el: ElementRef, @Inject(PLATFORM_TOKEN) public platform: string) {}
 
   ngOnInit() {
     this.renderer.listen('window', 'offline', (e) => {

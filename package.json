@@ -15,7 +15,7 @@
         "build-index": "tsc -p server\\tsconfig.functions.json",
         "build:client": "ng build --prod --output-hashing none",
         "build:server": "ng build --prod --app 1 --output-hashing none",
-        "ssr-setup": "npm run server-build && npm run copy && npm run build-index",
+        "ssr-setup": "npm run build:server && npm run copy && npm run build-index",
         "deploy": "npm run build:client && npm run build:server && npm run copy && npm run build-index && firebase deploy",
         "deploy:local": "npm run build:client && npm run build:server && npm run copy && npm run build-index && firebase serve --only hosting,functions"
     },
@@ -43,6 +43,7 @@
         "firebase-functions": "^0.6.2",
         "ng-pwa-tools": "0.0.15",
         "node-sass": "^4.5.3",
+        "preboot": "^5.1.4",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.4.1",
         "zone.js": "^0.8.14"
