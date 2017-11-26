@@ -1,5 +1,5 @@
 import { NoDataModule } from './components/no-data/no-data.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule  } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,7 +13,6 @@ import { ItemModule } from './components/item/item.module';
 import { UserModule } from './components/user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Services } from './services';
-import { BrowserPrebootModule } from 'preboot/browser';
 
 
 @NgModule({
@@ -25,13 +24,13 @@ import { BrowserPrebootModule } from 'preboot/browser';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angularHNA'}),
-    BrowserPrebootModule.replayEvents(),
     AppRoutingModule,
     ContentModule,
     UserModule,
     ItemModule,
     HttpClientModule,
-    NoDataModule
+    NoDataModule,
+    BrowserTransferStateModule 
   ],
   providers: [Services, { provide: PLATFORM_TOKEN, useValue: 'Client' }],
   bootstrap: [AppComponent]

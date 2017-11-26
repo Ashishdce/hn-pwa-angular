@@ -8,9 +8,18 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-.then(() => {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./worker-basic.min.js');
-  }
+// platformBrowserDynamic().bootstrapModule(AppModule)
+// .then(() => {
+//   if ('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('./worker-basic.min.js');
+//   }
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
+  .then(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./worker-basic.min.js');
+    }
+  });
 });
