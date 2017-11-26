@@ -36,18 +36,6 @@ function createExpressApp(config) {
         next();
     });
     router.get('/*', angularUniversal(config));
-    // router.get('/jobs/:id', angularUniversal(config));
-    // router.get('/jobs/:id/*', angularUniversal(config));
-    // router.get('/newest/:id', angularUniversal(config));
-    // router.get('/newest/:id/*', angularUniversal(config));
-    // router.get('/show/:id', angularUniversal(config));
-    // router.get('/show/:id/*', angularUniversal(config));
-    // router.get('/ask/:id', angularUniversal(config));
-    // router.get('/ask/:id/*', angularUniversal(config));
-    // router.get('/news/:id', angularUniversal(config));
-    // router.get('/news/:id/*', angularUniversal(config));
-    // router.get('/user/:id', angularUniversal(config));
-    // router.get('/user/:id/*', angularUniversal(config));
     return router;
 }
 
