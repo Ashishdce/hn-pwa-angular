@@ -12,17 +12,13 @@
                         <span class="header is-size-7 is-hidden-touch">Powered by Angular</span>
                     </p>
                 </div>
+                <div class="spacer"></div>
                 <div class="navbar-item is-hidden-desktop">
                     <div class="tags has-addons" *ngIf="curPageNumber">
                         <span class="tag">Page</span>
                         <span class="tag is-dark">{{curPageNumber}}</span>
                     </div>
                 </div>
-                <button class="button is-primary navbar-burger" role="button" aria-label="menu button" [ngClass]="{'is-active': showMenu}" (click)="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
             <div class="navbar-menu" [ngClass]="{'is-active': showMenu}">
                 <div class="navbar-start is-hidden-desktop">
@@ -35,7 +31,7 @@
             </div>
         </div>
     </nav>
-    <nav class="navbar has-shadow is-hidden-touch" role="navigation">
+    <nav class="navbar has-shadow" role="navigation">
         <div class="container">
             <div class="navbar-tabs second">
                 <ng-container *ngFor="let navRoute of navRoutes">
@@ -47,7 +43,7 @@
             <div class="spacer"></div>
             <div class="level">
                 <div class="level-item">
-                    <div class="tags has-addons" *ngIf="curPageNumber">
+                    <div class="tags has-addons is-hidden-touch" *ngIf="curPageNumber">
                         <span class="tag">Page</span>
                         <span class="tag is-primary">{{curPageNumber}}</span>
                     </div>

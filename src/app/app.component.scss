@@ -43,12 +43,9 @@
 
 .wrapper {
     min-height: 100vh;
-    padding-top: 3.25rem;
+    padding-top: 6.5rem;
     position: relative;
     top: 0;
-    @media screen and (min-width: 1024px) {
-        padding-top: 3.25rem * 2;
-    }
 }
 
 .skip-link {
