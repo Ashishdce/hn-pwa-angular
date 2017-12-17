@@ -35,6 +35,10 @@
     opacity: 0;
     transition: all 0.3s 0s ease-in-out;
     &.is-active {
+        background: #535353;
+        text-align: center;
+        color: #fff;
+        padding: 5px;
         bottom: 20px;
         visibility: visible;
         opacity: 1;
