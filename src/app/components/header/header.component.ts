@@ -1,5 +1,4 @@
 import { Title } from '@angular/platform-browser';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';

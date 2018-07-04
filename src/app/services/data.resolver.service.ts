@@ -1,9 +1,7 @@
-import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { CommonService } from './common.service';
-import 'rxjs/add/operator/toPromise';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 const DATA_KEY = makeStateKey('data_key');
 

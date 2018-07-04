@@ -10,56 +10,56 @@
                 "source": "/",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script"
+                    "value": "</styles.css>;rel=preload;as=style,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script"
                 }]
             },
             {
                 "source": "/newest/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {
                 "source": "/news/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {
                 "source": "/ask/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {
                 "source": "/show/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {
                 "source": "/jobs/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {
                 "source": "/item/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {
                 "source": "/user/*",
                 "headers": [{
                     "key": "Link",
-                    "value": "</styles.bundle.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.bundle.js>;rel=preload;as=script,</inline.bundle.js>;rel=preload;as=script,</polyfills.bundle.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
+                    "value": "</styles.css>;rel=preload;as=style;nopush,</ngsw.json>;rel=preload;as=json,</main.js>;rel=preload;as=script,</polyfills.js>;rel=preload;as=script,</runtime.js>;rel=preload;as=script,</ngsw-worker.js>;rel=preload;as=script;nopush"
                 }]
             },
             {

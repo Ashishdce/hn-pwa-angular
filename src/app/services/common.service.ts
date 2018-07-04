@@ -1,5 +1,5 @@
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Injectable, OnDestroy } from '@angular/core';
 
 @Injectable()
